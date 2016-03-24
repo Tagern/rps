@@ -55,7 +55,7 @@ function getImage(weapon) {
             el = '<img src="images/shield-icon.png" >';
             break;
         case "scissors":
-            el = '<img src="images/scissors_100x100.png" >';
+            el = '<img src="images/recharge-icon.png" >';
             break;
         default:
             el = '<img style="transform: scaleX(1);" src="images/help.png" >';
