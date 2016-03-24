@@ -197,3 +197,6 @@ function getUrlVars() {
     return vars;
 }
 
+// OUR JAVASCRIPT
+
+
