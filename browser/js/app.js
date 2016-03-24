@@ -58,7 +58,7 @@ function getImage(weapon) {
             el = '<img src="images/scissors_100x100.png" >';
             break;
         default:
-            el = '<img style="transform: scaleX(1);" src="images/help.png" >';
+            el = '<img style="transform: scaleX(1);" src="images/question-mark.png" >';
     }
     return el;
 }
@@ -77,14 +77,14 @@ function countDown(){
             yield "1";
             yield "2";
             yield "3";
-            yield "throw!";
+            yield "BATTLE!";
         }();
 
         function iterate(){
             var count = iterator.next();
             if(!count.done){
                 resultEl.innerHTML = '<h1>' + count.value + '</h1>';
-                setTimeout(iterate, 800);
+                setTimeout(iterate, 600);
             } else {
                 resolve();
             }
@@ -126,7 +126,7 @@ socket.on('waiting', function(sessionID){ // we're ready, let's wait for opponen
     frontView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', ''); // show
     var el = waitView.querySelector('.invite-url');
-    el.innerHTML = "To invite someone to play, share this url:<h4>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?session=" + sessionID + "</h4>";
+    el.innerHTML = "<h4>" + window.location.protocol + "//" + window.location.host + window.location.pathname + "?session=" + sessionID + "</h4>";
 });
 
 socket.on('start', function(){ // both clients are ready, let the game begin
