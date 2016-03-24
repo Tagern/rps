@@ -49,13 +49,13 @@ function getImage(weapon) {
     var el;
     switch (weapon) {
         case "rock":
-                el = '<img src="images/rock_100x100.png" >';
+                el = '<img src="images/attack-icon.png" >';
                 break;
         case "paper":
-            el = '<img src="images/paper_100x100.png" >';
+            el = '<img src="images/shield-icon.png" >';
             break;
         case "scissors":
-            el = '<img src="images/scissors_100x100.png" >';
+            el = '<img src="images/recharge-icon.png" >';
             break;
         default:
             el = '<img style="transform: scaleX(1);" src="images/question-mark.png" >';
