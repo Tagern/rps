@@ -1,8 +1,10 @@
 body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Emulogic", "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
   margin: 0;
+  color: white;
+  background-color: black;
  
 }
 button {
@@ -110,3 +112,20 @@ footer {
 .lose {
   color: red;
 }
+
+
+
+
+
+
+@font-face {
+  font-family: 'Emulogic';
+  src: url('../fonts/Emulogic/Emulogic.eot?#iefix') format('embedded-opentype'),  
+    url('../fonts/Emulogic/Emulogic.woff') format('woff'), 
+    url('../fonts/Emulogic/Emulogic.ttf')  format('truetype'), 
+    url('../fonts/Emulogic/Emulogic.svg#Emulogic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
