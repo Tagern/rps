@@ -86,7 +86,7 @@ footer {
   transform: scaleX(-1);
 }
 #result {
-  color: dimgrey;
+  /*color: dimgrey;*/
   text-align: center;
   font-style: italic;
 }
@@ -107,8 +107,7 @@ footer {
   margin-bottom: 10px;
 }
 #weapon-selector img {
-  background-color: white;
-  border-radius: 50px;
+ 
 }
 #weapon-selector a {
   margin: 0 5px;
@@ -125,7 +124,7 @@ footer {
 .rounds {
   text-align: center;
   padding: 10px 20px;
-  color: dimgrey;
+  /*color: dimgrey;*/
 }
 .hide {
   display: none;
@@ -140,17 +139,21 @@ footer {
 
 
 .you {
-  color: #FF00FF;
+  color: #FF00FF; /*purple */
 }
 
 .opponent {
-  color: #FF3333;
+  color: #FF3333; /*red*/
+}
+
+.blue {
+  color: #3399FF;
 }
 
 
-
-
-
+.attack-icon {
+  background: none;
+}
 
 
 
