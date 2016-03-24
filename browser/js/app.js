@@ -49,10 +49,10 @@ function getImage(weapon) {
     var el;
     switch (weapon) {
         case "rock":
-                el = '<img src="images/attack-icon.png" >';
+                el = '<img src="images/rock_100x100.png" >';
                 break;
         case "paper":
-            el = '<img src="images/shield-icon.png" >';
+            el = '<img src="images/paper_100x100.png" >';
             break;
         case "scissors":
             el = '<img src="images/scissors_100x100.png" >';
@@ -168,10 +168,10 @@ function showResult(result){
 
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p1Wins;
-        scoreOppEl.innerHTML = result.p2Wins + 14 +"%";
+        scoreOppEl.innerHTML = result.p2Wins;
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
-        scoreOppEl.innerHTML = result.p1Wins + 14 +"%";
+        scoreOppEl.innerHTML = result.p1Wins;
         scoreYouEl.innerHTML = result.p2Wins;
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
