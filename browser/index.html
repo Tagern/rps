@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rock Paper Scissors</title>
+    <title>8-bit BattleZone</title>
     <script src="https://featuretests.io/rs.js"></script>
     <link rel='stylesheet' href="css/style.css" />
 </head>
@@ -23,14 +23,15 @@
 
         <div id="frontView">
             <div id="front">
-                <div>Welcome to</div>
-                <h1>Rock-paper-scissors</h1>
 
-                <button onclick="window.location.href='rules.html'" id="rules">Rules</button>
-                <p>
-                    <button id="start">start game</button>
-                    <p id="messages"></p>
-                </p>
+                <h1>8-bit Battle Zone</h1>
+
+                <ul class="menu-list">
+
+                    <li><button id="start">start game</button></li>
+                    <li><button onclick="window.location.href='rules.html'" id="rules">Rules</button></li>
+                </ul>
+                <p id="messages"></p>
             </div>
             <footer>
                 <div>Powered by: Node.js, socket.io & ES6 (Promise, Generator).</div>
@@ -63,11 +64,11 @@
 
             <div id='game'>
                 <div>
-                    <h1>You</h1>
+                    <h1 class="you">You</h1>
                     <p id="weaponYou"></p>
                 </div>
                 <div>
-                    <h1>Opponent</h1>
+                    <h1 class="opponent">Opponent</h1>
                     <p id="weaponOpponent"></p>
                 </div>
             </div>
@@ -75,7 +76,7 @@
                 <h2 id="result"></h2>
             </div>
             <div id="weapon-selector">
-                <div>Pick to throw</div>
+                <div>Choose your move</div>
                 <a id="rock" type="button"><img src='images/rock_70x70.png'></a>
                 <a id="paper" type="button"><img src='images/paper_70x70.png'></a>
                 <a id="scissors" type="button"><img src='images/scissors_70x70.png'></a>
