@@ -1,9 +1,8 @@
 html {
-  cursor: url(../images/cursor.jpg), auto;
+  cursor: url(../images/cursor.png), auto;
 }
 
 body {
-  cursor: url(../images/cursor.jpg), auto;
   font: 1.2em "Emulogic", "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
@@ -13,7 +12,7 @@ body {
 }
 
 a {
-  cursor: url(../images/cursor.jpg), auto;
+  cursor: url(../images/pointer.jpg), auto;
 }
 
 button {
@@ -21,12 +20,11 @@ button {
   background-color: transparent;
   border: none;
   color: white;
-  cursor: url(../images/cursor.jpg), auto;
+  cursor: url(../images/pointer.png), auto;
   display: inline-block;
   margin-bottom: 0;
   font-size: 1.2em;
   font-weight: 400;
-
   text-align: center;
   vertical-align: middle;
   touch-action: manipulation;
@@ -35,6 +33,10 @@ button {
 }
 button:hover {
   color: #00ff00; /*green */
+  border: none;
+}
+button:focus {
+  outline: none;
 }
 
 header,
@@ -118,10 +120,11 @@ footer {
   margin-bottom: 40px;
 }
 #weapon-selector div {
+
   margin-bottom: 20px;
 }
 #weapon-selector img {
- 
+   cursor: url(../images/pointer.png), auto;
 }
 #weapon-selector a {
   margin: 0 5px;
