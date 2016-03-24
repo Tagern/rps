@@ -84,7 +84,7 @@ function countDown(){
             var count = iterator.next();
             if(!count.done){
                 resultEl.innerHTML = '<h1>' + count.value + '</h1>';
-                setTimeout(iterate, 400);
+                setTimeout(iterate, 500);
             } else {
                 resolve();
             }
