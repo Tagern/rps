@@ -24,15 +24,13 @@
         <div id="frontView">
             <div id="front">
                 <h1>8-bit Battle Zone</h1>
-                <div>
-                    
-                </div>
 
-                <button onclick="window.location.href='rules.html'" id="rules">Rules</button>
-                <p>
-                    <button id="start">start game</button>
-                    <p id="messages"></p>
-                </p>
+                <ul class="menu-list">
+
+                    <li><button id="start">start game</button></li>
+                    <li><button onclick="window.location.href='rules.html'" id="rules">Rules</button></li>
+                </ul>
+                <p id="messages"></p>
             </div>
             <footer>
                 <div>Powered by: Node.js, socket.io & ES6 (Promise, Generator).</div>
@@ -65,11 +63,11 @@
 
             <div id='game'>
                 <div>
-                    <h1>You</h1>
+                    <h1 class="you">You</h1>
                     <p id="weaponYou"></p>
                 </div>
                 <div>
-                    <h1>Opponent</h1>
+                    <h1 class="opponent">Opponent</h1>
                     <p id="weaponOpponent"></p>
                 </div>
             </div>
