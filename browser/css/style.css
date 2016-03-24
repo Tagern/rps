@@ -158,15 +158,15 @@ footer {
 }
 
 .you {
-  color: #FF00FF; /*purple */
+   color: #3399FF;
 }
 
 .opponent {
   color: #FF3333; /*red*/
 }
 
-.blue {
-  color: #3399FF;
+.purple {
+  color: #FF00FF; /*purple */
 }
 
 
