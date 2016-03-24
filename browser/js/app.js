@@ -113,9 +113,9 @@ socket.on('restart', function(){ // opponent disconnected, return to start scree
     alert("Opponent fled.");
     gameView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
-    scoreYouEl.innerHTML = 0;
-    scoreOppEl.innerHTML = 0;
-    roundEl.innerHTML = 0;
+    // scoreYouEl.innerHTML = 0;
+    // scoreOppEl.innerHTML = 0;
+    // roundEl.innerHTML = 0;
     reset();
     frontView.setAttribute('class', ''); // show
     socket.emit('restart:done');
@@ -172,7 +172,7 @@ function showResult(result){
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
         scoreOppEl.innerHTML = result.p1Wins;
-        scoreYouEl.innerHTML = result.p2Wins;
+        scoreYouEl.innerHTML = result.p2Wins+15+"%";
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
