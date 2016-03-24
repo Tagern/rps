@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  cursor: url(../images/cursor.jpg), auto;
   font: 1.2em "Emulogic", "Lucida Grande", Helvetica, Arial, sans-serif;
   display: flex;
   flex-direction: column;
