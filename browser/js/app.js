@@ -151,28 +151,28 @@ socket.on('result', function(data){
 });
 
 function showResult(result){
-    /*
-    Expected result data format:
-    {
-        round: session.round,
-        p1Id: player1.socket.id,
-        p1Wins: player1.wins,
-        p1Weapon: player1.weapon,
-        p2Id: player2.socket.id,
-        p2Wins: player2.wins,
-        p2Weapon: player2.weapon,
-        resultMessage: result.msg,
-        winnerId: result.winner ? result.winner.socket.id : null
-    };
-    */
+    
+    // Expected result data format:
+    // {
+    //     round: session.round,
+    //     p1Id: player1.socket.id,
+    //     p1Wins: player1.wins,
+    //     p1Weapon: player1.weapon,
+    //     p2Id: player2.socket.id,
+    //     p2Wins: player2.wins,
+    //     p2Weapon: player2.weapon,
+    //     resultMessage: result.msg,
+    //     winnerId: result.winner ? result.winner.socket.id : null
+    // };
+    
 
     if(result.p1Id === socket.id){ // you
-        scoreYouEl.innerHTML = result.p1Wins;
-        scoreOppEl.innerHTML = result.p2Wins;
+        scoreYouEl.innerHTML = result.p1Wins+"%";
+        scoreOppEl.innerHTML = result.p2Wins+"%";
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
-        scoreOppEl.innerHTML = result.p1Wins;
-        scoreYouEl.innerHTML = result.p2Wins+15+"%";
+        scoreOppEl.innerHTML = result.p1Wins+"%";
+        scoreYouEl.innerHTML = result.p2Wins+"%";
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
