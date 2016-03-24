@@ -147,10 +147,10 @@ footer {
   display: none;
 }
 .win {
-  color: green;
+  color: #00ff00;
 }
 .lose {
-  color: red;
+  color: #FF3333;
 }
 
 .invite-url {
