@@ -41,9 +41,9 @@ function onError(error) {
         throw error;
     }
 
-    var bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+    var bind = typeof PORT === 'string'
+        ? 'Pipe ' + PORT
+        : 'Port ' + PORT;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
@@ -333,7 +333,7 @@ function resolveDuel(session) {
         if(result.winner){
             result.winner.wins = result.winner.wins +13;
         } // else tie
-
+    
         session.incrementRound();
 
         session.getPlayers().forEach(function(element){
