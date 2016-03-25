@@ -337,7 +337,7 @@ function resolveDuel(session) {
             result.winner.wins = result.winner.wins +15;
         }
 
-        // else tie
+        //else tie
     
         session.incrementRound();
 
