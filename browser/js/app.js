@@ -168,12 +168,12 @@ function showResult(result){
     
 
     if(result.p1Id === socket.id){ // you
-        scoreYouEl.innerHTML = result.p1Wins+"%";
-        scoreOppEl.innerHTML = result.p2Wins+"%";
+        scoreYouEl.innerHTML = result.p2Wins+"%";
+        scoreOppEl.innerHTML = result.p1Wins+"%";
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
-        scoreOppEl.innerHTML = result.p1Wins+"%";
-        scoreYouEl.innerHTML = result.p2Wins+"%";
+        scoreOppEl.innerHTML = result.p2Wins+"%";
+        scoreYouEl.innerHTML = result.p1Wins+"%";
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
