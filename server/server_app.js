@@ -331,8 +331,14 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
         if(result.winner){
-            result.winner.wins = result.winner.wins +13;
-        } // else tie
+            result.winner.wins = result.winner.wins +0;
+        }
+        else if(result.winner == false){
+            result.winner.wins = !result.winner.wins +14;
+
+        }
+
+        // else tie
     
         session.incrementRound();
 
