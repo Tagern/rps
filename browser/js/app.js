@@ -3,8 +3,13 @@
  */
 "use strict";
 
-//var url = 'http://localhost:8080';
+<<<<<<< HEAD
+var url = 'http://localhost:8888/rps/server/server_app.js';
+// var url = 'https://quiet-beyond-3424.herokuapp.com/';
+=======
+//var url = 'http://localhost:8888/'; //changed from 8080
 var url = 'https://quiet-beyond-3424.herokuapp.com/';
+>>>>>>> 07a9ad7d85562723e5aa6a28ded6e73f0dd24ab8
 var socket = io(url);
 
 // views
