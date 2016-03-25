@@ -25,10 +25,10 @@ var weaponChosenOpp = document.querySelector('#weaponOpponent');
 var btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', createGame);
 
-var btnRock = document.querySelector('#rock');
-btnRock.addEventListener('click', onRock);
-var btnPaper = document.querySelector('#paper');
-btnPaper.addEventListener('click', onPaper);
+var btnAttack = document.querySelector('#attack');
+btnAttack.addEventListener('click', onAttack);
+var btnShield = document.querySelector('#shield');
+btnShield.addEventListener('click', onShield);
 var btnScissors = document.querySelector('#scissors');
 btnScissors.addEventListener('click', onScissors);
 
@@ -36,11 +36,11 @@ function createGame(){
     socket.emit('create');
 }
 
-function onRock() {
-    socket.emit('choice', "rock");
+function onAttack() {
+    socket.emit('choice', "attack");
 }
-function onPaper() {
-    socket.emit('choice', "paper");
+function onShield() {
+    socket.emit('choice', "shield");
 }
 function onScissors() {
     socket.emit('choice', "scissors");
@@ -49,10 +49,10 @@ function onScissors() {
 function getImage(weapon) {
     var el;
     switch (weapon) {
-        case "rock":
+        case "attack":
             el = '<img src="images/attack-icon.png" >';
             break;
-        case "paper":
+        case "shield":
             el = '<img src="images/shield-icon.png" >';
             break;
         case "scissors":
@@ -114,9 +114,9 @@ socket.on('restart', function(){ // opponent disconnected, return to start scree
     alert("Opponent fled.");
     gameView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
-    // scoreYouEl.innerHTML = 0;
-    // scoreOppEl.innerHTML = 0;
-    // roundEl.innerHTML = 0;
+    scoreYouEl.innerHTML = 0;
+    scoreOppEl.innerHTML = 0;
+    roundEl.innerHTML = 0;
     reset();
     frontView.setAttribute('class', ''); // show
     socket.emit('restart:done');
@@ -181,7 +181,7 @@ function showResult(result){
 
     var msg = result.resultMessage;
     if(result.winnerId){
-        msg = msg + (result.winnerId === socket.id ? '<h2 class="win">You win!</h2>' : '<h2 class="lose">You lose!</h2>');
+        msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
     setTimeout(function(){

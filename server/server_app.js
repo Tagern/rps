@@ -290,34 +290,34 @@ function fight(player1, player2){
     var weapon1 = player1.weapon,
         weapon2 = player2.weapon;
 
-    if(weapon1 === weapon2) return {msg: "Tie"};
+    if(weapon1 === weapon2) return {msg: "you chose the same... "};
 
     // return result:
 
-    if(weapon1 === "rock"){
-        if(weapon2 === "paper"){
-            return {winner: player2, looser: player1, msg: "paper beats rock"};
+    if(weapon1 === "attack"){
+        if(weapon2 === "shield"){
+            return {winner: player2, loser: player1, msg: "Attack was blocked!"};
         }
         if(weapon2 === "scissors"){
-            return {winner: player1, looser: player2, msg: "rock beats scissors"};
+            return {winner: player1, loser: player2, msg: "You got hit!"};
         }
     }
 
-    if(weapon1 === "paper"){
-        if(weapon2 === "rock"){
-            return {winner: player1, looser: player2, msg: "paper beats rock"};
+    if(weapon1 === "shield"){
+        if(weapon2 === "attack"){
+            return {winner: player1, loser: player2, msg: "You blocked the attack!"};
         }
         if(weapon2 === "scissors"){
-            return {winner: player2, looser: player1, msg: "scissors beats paper"};
+            return {winner: player2, loser: player1, msg: "Qi Charge successful!"};
         }
     }
 
     if(weapon1 === "scissors"){
-        if(weapon2 === "rock"){
-            return {winner: player2, looser: player1, msg: "rock beats scissors"};
+        if(weapon2 === "attack"){
+            return {winner: player2, loser: player1, msg: "rock beats scissors"};
         }
-        if(weapon2 === "paper"){
-            return {winner: player1, looser: player2, msg: "scissors beats paper"};
+        if(weapon2 === "shield"){
+            return {winner: player1, loser: player2, msg: "scissors beats paper"};
         }
     }
 }
@@ -357,7 +357,7 @@ function resolveDuel(session) {
         // wait and emit reset
         setTimeout(function() {
             reset(session);
-        }, 8000)
+        }, 4000)
     }
 }
 
