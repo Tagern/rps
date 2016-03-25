@@ -8,10 +8,10 @@
  * Module dependencies.
  */
 var http = require('http');
-var debug = require('debug')('rock-paper-scissors:server');
+var debug = require('debug')('rps:server');
 
 // Define a port we want to listen to
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 8888; //changed from 8080
 
 // We need a function which handles requests and send response
 function handleRequest(request, response){
@@ -331,7 +331,7 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
         if(result.winner){
-            result.winner.wins = result.winner.wins +1;
+            result.winner.wins = result.winner.wins +13;
         } // else tie
 
         session.incrementRound();
