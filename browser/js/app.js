@@ -49,8 +49,8 @@ function getImage(weapon) {
     var el;
     switch (weapon) {
         case "rock":
-                el = '<img src="images/attack-icon.png" >';
-                break;
+            el = '<img src="images/attack-icon.png" >';
+            break;
         case "paper":
             el = '<img src="images/shield-icon.png" >';
             break;
