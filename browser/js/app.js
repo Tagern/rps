@@ -29,8 +29,8 @@ var btnAttack = document.querySelector('#attack');
 btnAttack.addEventListener('click', onAttack);
 var btnShield = document.querySelector('#shield');
 btnShield.addEventListener('click', onShield);
-var btnScissors = document.querySelector('#scissors');
-btnScissors.addEventListener('click', onScissors);
+var btnRecharge = document.querySelector('#recharge');
+btnRecharge.addEventListener('click', onRecharge);
 
 function createGame(){
     socket.emit('create');
@@ -42,8 +42,8 @@ function onAttack() {
 function onShield() {
     socket.emit('choice', "shield");
 }
-function onScissors() {
-    socket.emit('choice', "scissors");
+function onRecharge() {
+    socket.emit('choice', "recharge");
 }
 
 function getImage(weapon) {
@@ -55,7 +55,7 @@ function getImage(weapon) {
         case "shield":
             el = '<img src="images/shield-icon.png" >';
             break;
-        case "scissors":
+        case "recharge":
             el = '<img src="images/recharge-icon.png" >';
             break;
         default:

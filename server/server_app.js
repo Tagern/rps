@@ -298,7 +298,7 @@ function fight(player1, player2){
         if(weapon2 === "shield"){
             return {winner: player2, loser: player1, msg: "Attack was blocked!"};
         }
-        if(weapon2 === "scissors"){
+        if(weapon2 === "recharge"){
             return {winner: player1, loser: player2, msg: "You got hit!"};
         }
     }
@@ -307,17 +307,17 @@ function fight(player1, player2){
         if(weapon2 === "attack"){
             return {winner: player1, loser: player2, msg: "You blocked the attack!"};
         }
-        if(weapon2 === "scissors"){
-            return {winner: player2, loser: player1, msg: "Qi Charge successful!"};
+        if(weapon2 === "recharge"){
+            return {winner: player2, loser: player1, msg: "Your rival focused QI Energy"};
         }
     }
 
-    if(weapon1 === "scissors"){
+    if(weapon1 === "recharge"){
         if(weapon2 === "attack"){
-            return {winner: player2, loser: player1, msg: "rock beats scissors"};
+            return {winner: player2, loser: player1, msg: "You were hit"};
         }
         if(weapon2 === "shield"){
-            return {winner: player1, loser: player2, msg: "scissors beats paper"};
+            return {winner: player1, loser: player2, msg: "Harnessing the power of QI"};
         }
     }
 }
@@ -359,7 +359,7 @@ function resolveDuel(session) {
         // wait and emit reset
         setTimeout(function() {
             reset(session);
-        }, 4000)
+        }, 5500)
     }
 }
 
