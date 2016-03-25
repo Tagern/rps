@@ -3,8 +3,8 @@
  */
 "use strict";
 
-//var url = 'http://localhost:8888/'; //changed from 8080
-var url = 'https://quiet-beyond-3424.herokuapp.com/';
+var url = 'http://localhost:8080/'; //changed from 8080
+//var url = 'https://quiet-beyond-3424.herokuapp.com/';
 var socket = io(url);
 
 // views

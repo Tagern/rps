@@ -11,7 +11,7 @@ var http = require('http');
 var debug = require('debug')('rps:server');
 
 // Define a port we want to listen to
-const PORT = process.env.PORT || 8888; //changed from 8080
+const PORT = process.env.PORT || 8080; //changed from 8080
 
 // We need a function which handles requests and send response
 function handleRequest(request, response){
