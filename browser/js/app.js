@@ -4,9 +4,8 @@
 "use strict";
 
 
-var url = 'http://localhost:8080/';
 //var url = 'https://quiet-beyond-3424.herokuapp.com/';
-var socket = io(url);
+var socket = io();
 
 // views
 var frontView = document.querySelector('#frontView');
