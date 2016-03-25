@@ -11,7 +11,7 @@ var http = require('http');
 var debug = require('debug')('rps:server');
 
 // Define a port we want to listen to
-const PORT = process.env.PORT || 8888; //changed from 8080
+const PORT = process.env.PORT || 8080; //changed from 8080
 
 // We need a function which handles requests and send response
 function handleRequest(request, response){
@@ -41,9 +41,9 @@ function onError(error) {
         throw error;
     }
 
-    var bind = typeof port === 'string'
-        ? 'Pipe ' + port
-        : 'Port ' + port;
+    var bind = typeof PORT === 'string'
+        ? 'Pipe ' + PORT
+        : 'Port ' + PORT;
 
     // handle specific listen errors with friendly messages
     switch (error.code) {
@@ -333,7 +333,7 @@ function resolveDuel(session) {
         if(result.winner){
             result.winner.wins = result.winner.wins +13;
         } // else tie
-
+    
         session.incrementRound();
 
         session.getPlayers().forEach(function(element){
