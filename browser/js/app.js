@@ -201,15 +201,29 @@ function showResult(result){
         msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
+<<<<<<< HEAD
     if(result.attack_attackId){
         msg = msg + (result.attack_attackId === socket.id ? '<h2 class="you both got hit yo!"></h2>' : '<h2 class="you both got hit yo!"></h2>');
     }
+=======
+
+    
+
+
+>>>>>>> c8b851f3787b25def94f5acd2ebfd2c0996b492e
 
     setTimeout(function(){
         resultEl.innerHTML = msg;
     }, 1000);
 }
 
+<<<<<<< HEAD
+=======
+    
+
+
+
+>>>>>>> c8b851f3787b25def94f5acd2ebfd2c0996b492e
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,

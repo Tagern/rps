@@ -352,9 +352,18 @@ function resolveDuel(session) {
 
 
 
+<<<<<<< HEAD
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
+=======
+
+
+    
+
+    
+
+>>>>>>> c8b851f3787b25def94f5acd2ebfd2c0996b492e
 
 
 
