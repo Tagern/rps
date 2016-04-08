@@ -183,6 +183,12 @@ function showResult(result){
         msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
+    if(result.attack_attackId){
+        msg = msg + (result.attack_attackId === socket.id ? '<h2 class="you both got hit yo!"></h2>' : '<h2 class="you both got hit yo!"></h2>');
+    }
+
+
+
     setTimeout(function(){
         resultEl.innerHTML = msg;
     }, 1000);

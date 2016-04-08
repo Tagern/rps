@@ -293,25 +293,33 @@ function fight(player1, player2){
     var weapon1 = player1.weapon,
         weapon2 = player2.weapon;
 
-    if(weapon1 === weapon2) return {msg: "you chose the same... "};
+    // if(weapon1 === weapon2) return {msg: "you chose the same... "};
 
     // return result:
 
+
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
-            return {winner: player2, loser: player1, msg: "Attack was blocked!"};
+            return {loser: player2, loser: player1, msg: "Attack was blocked!"};
         }
         if(weapon2 === "recharge"){
             return {winner: player1, loser: player2, msg: "You got hit!"};
         }
+        if(weapon2 === "attack"){
+            return {attack_attack: player1, attack_attack: player2, msg: "You both got hit!"};
+        }
     }
+    
 
     if(weapon1 === "shield"){
         if(weapon2 === "attack"){
-            return {winner: player1, loser: player2, msg: "You blocked the attack!"};
+            return {loser: player1, loser: player2, msg: "You blocked the attack!"};
         }
         if(weapon2 === "recharge"){
-            return {winner: player2, loser: player1, msg: "Your rival focused QI Energy"};
+            return {loser: player2, loser: player1, msg: "Your rival focused QI Energy"};
+        }
+        if(weapon2 === "shield"){
+            return {loser: player2, loser: player1, msg: "You both used shield!"};
         }
     }
 
@@ -320,7 +328,10 @@ function fight(player1, player2){
             return {winner: player2, loser: player1, msg: "You were hit"};
         }
         if(weapon2 === "shield"){
-            return {winner: player1, loser: player2, msg: "Harnessing the power of QI"};
+            return {loser: player1, loser: player2, msg: "Harnessing the power of QI"};
+        }
+        if(weapon2 === "recharge"){
+            return {loser: player1, loser: player2, msg: "You both harnessed the power of QI"};
         }
     }
 }
@@ -333,9 +344,20 @@ function resolveDuel(session) {
     if (player1.weapon && player2.weapon) {
         var result = fight(player1, player2);
 
+
+
+
         if(result.winner){
             result.winner.wins = result.winner.wins +15;
         }
+
+        if(result.attack_attack){
+            result.attack_attack.bothWins = result.attack_attack.bothWins +55;
+        };
+
+
+
+
 
         // else tie
     
@@ -351,6 +373,9 @@ function resolveDuel(session) {
                 p2Id: player2.socket.id,
                 p2Wins: player2.wins,
                 p2Weapon: player2.weapon,
+
+                bothWins: player1.wins && player2.wins,
+
                 resultMessage: result.msg,
                 winnerId: result.winner ? result.winner.socket.id : null
             };
