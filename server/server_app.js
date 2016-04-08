@@ -300,7 +300,12 @@ function fight(player1, player2){
 
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
+<<<<<<< HEAD
             return {loser: player2, loser: player1, msg: "Attack was blocked!"};
+=======
+
+            return {winner: player2, loser: player1, msg: "Attack was blocked!"};
+>>>>>>> 5c5152c9d5160ccbecd9f2b0a8217448cda64dc4
         }
         if(weapon2 === "recharge"){
             return {winner: player1, loser: player2, msg: "You got hit!"};
@@ -351,6 +356,7 @@ function resolveDuel(session) {
             result.winner.wins = result.winner.wins +15;
         }
 
+<<<<<<< HEAD
         if(result.attack_attack){
             result.attack_attack.bothWins = result.attack_attack.bothWins +55;
         };
@@ -360,6 +366,9 @@ function resolveDuel(session) {
 
 
         // else tie
+=======
+        //else tie
+>>>>>>> 5c5152c9d5160ccbecd9f2b0a8217448cda64dc4
     
         session.incrementRound();
 
