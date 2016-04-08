@@ -354,9 +354,7 @@ function resolveDuel(session) {
 
 
 
-    if(nrg < 1){
-        document.querySelector(".attack-icon").style.display == 'none';
-    }
+    
 
     
 
