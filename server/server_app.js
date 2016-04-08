@@ -244,12 +244,15 @@ var sessionManager = function (id) { // module for managing individual sessions
         var player = {
             weapon: null,
             wins: 0,
+            nrg: 0,
             socket: socket
         };
+
 
         session.players.push(player);
         return player;
     }
+    
 
     function getAllPlayers(){
         return session.players;
@@ -345,16 +348,28 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
 
+
+
+    // if(nrg < 1){
+    //     document.querySelector(".attack-icon").style.display == 'none';
+    // }
+
+
+
+
     // ATTACKING 
         if(result.attack_hit){
             result.attack_hit.wins = result.attack_hit.wins + 17;
+            result.attack_hit.nrg = result.attack_hit.nrg - 1;
         }
 
         if(result.attack_hit_also){
             result.attack_hit_also.wins = result.attack_hit_also.wins + 17;
+            result.attack_hit_also.nrg = result.attack_hit_also.nrg - 1;
         }
 
         if(result.attack_shielded){
+            result.attack_shielded.nrg = result.attack_shielded.nrg - 1;
         }
 
     // SHIELDING
@@ -373,9 +388,11 @@ function resolveDuel(session) {
         }
 
         if(result.focus){
+            result.focus.nrg = result.focus.nrg + 1;
         }
 
         if(result.focus_also){
+            result.focus_also.nrg = result.focus_also.nrg + 1;
         }
 
 
@@ -403,6 +420,8 @@ function resolveDuel(session) {
                 p1Weapon: player1.weapon,
                 p2Id: player2.socket.id,
                 p2Wins: player2.wins,
+                p1Energy: player1.nrg,
+                p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
                 resultMessage: result.msg,
                 winnerId: result.winner ? result.winner.socket.id : null

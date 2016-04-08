@@ -175,16 +175,16 @@ function showResult(result){
         scoreYouEl.innerHTML = result.p2Wins+"%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
 
-        opponentsEnergy.innerHTML = result.p1Wins+"%";
-        yourEnergy.innerHTML = result.p2Wins+"%";
+        opponentsEnergy.innerHTML = result.p2Energy;
+        yourEnergy.innerHTML = result.p1Energy;
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
         scoreOppEl.innerHTML = result.p2Wins+"%";
         scoreYouEl.innerHTML = result.p1Wins+"%";
 
-        opponentsEnergy.innerHTML = result.p2Wins+"%";
-        yourEnergy.innerHTML = result.p1Wins+"%";
+        opponentsEnergy.innerHTML = result.p1Energy;
+        yourEnergy.innerHTML = result.p2Energy;
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
