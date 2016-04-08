@@ -15,6 +15,10 @@ var gameView = document.querySelector('#gameView');
 var consoleEl = document.querySelector('#messages');
 var scoreYouEl = document.querySelector('#scoreYou');
 var scoreOppEl = document.querySelector('#scoreOpponent');
+
+var yourEnergy = document.querySelector('#energyYou');
+var opponentsEnergy = document.querySelector('#energyOpponent');
+
 var roundEl = document.querySelector('#round');
 var resultEl = document.querySelector('#result');
 var selectorEl = document.querySelector('#weapon-selector');
@@ -25,24 +29,24 @@ var btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', createGame);
 
 var btnAttack = document.querySelector('#attack');
-btnAttack.addEventListener('click', onAttack);
+btnAttack.addEventListener('click', on_Attack);
 var btnShield = document.querySelector('#shield');
-btnShield.addEventListener('click', onShield);
-var btnRecharge = document.querySelector('#recharge');
-btnRecharge.addEventListener('click', onRecharge);
+btnShield.addEventListener('click', on_Shield);
+var btnFocus = document.querySelector('#focus');
+btnFocus.addEventListener('click', on_Focus);
 
 function createGame(){
     socket.emit('create');
 }
 
-function onAttack() {
+function on_Attack() {
     socket.emit('choice', "attack");
 }
-function onShield() {
+function on_Shield() {
     socket.emit('choice', "shield");
 }
-function onRecharge() {
-    socket.emit('choice', "recharge");
+function on_Focus() {
+    socket.emit('choice', "focus");
 }
 
 function getImage(weapon) {
@@ -54,7 +58,7 @@ function getImage(weapon) {
         case "shield":
             el = '<img src="images/shield-icon.png" >';
             break;
-        case "recharge":
+        case "focus":
             el = '<img src="images/recharge-icon.png" >';
             break;
         default:
@@ -166,13 +170,22 @@ function showResult(result){
     // };
     
 
+
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
+
+        opponentsEnergy.innerHTML = result.p1Wins+"%";
+        yourEnergy.innerHTML = result.p2Wins+"%";
+
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
         scoreOppEl.innerHTML = result.p2Wins+"%";
         scoreYouEl.innerHTML = result.p1Wins+"%";
+
+        opponentsEnergy.innerHTML = result.p2Wins+"%";
+        yourEnergy.innerHTML = result.p1Wins+"%";
+
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
@@ -183,6 +196,7 @@ function showResult(result){
         msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
+<<<<<<< HEAD
     if(result.attack_attackId){
         msg = msg + (result.attack_attackId === socket.id ? '<h2 class="you both got hit yo!"></h2>' : '<h2 class="you both got hit yo!"></h2>');
     }
@@ -190,11 +204,15 @@ function showResult(result){
     
 
 
+=======
+>>>>>>> origin/master
 
     setTimeout(function(){
         resultEl.innerHTML = msg;
     }, 1000);
 }
+
+
 
 function getUrlVars() {
     var vars = {};
