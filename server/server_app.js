@@ -303,7 +303,9 @@ function fight(player1, player2){
 
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
+
             return {attack_shielded: player1, shielded_attack: player2, msg: "Attack was blocked!"};
+
         }
         if(weapon2 === "focus"){
             return {attack_hit: player1, focus_hit: player2, msg: "You got hit!"};
@@ -371,6 +373,14 @@ function resolveDuel(session) {
         if(result.attack_shielded){
             result.attack_shielded.nrg = result.attack_shielded.nrg - 1;
         }
+
+
+
+
+        // else tie
+
+        //else tie
+
 
     // SHIELDING
         if(result.shielded){
