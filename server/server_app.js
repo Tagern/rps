@@ -244,12 +244,13 @@ var sessionManager = function (id) { // module for managing individual sessions
         var player = {
             weapon: null,
             wins: 0,
-            nrg: 0,
+            nrg: 2,
             socket: socket
         };
 
 
         session.players.push(player);
+
         return player;
     }
     
@@ -352,9 +353,7 @@ function resolveDuel(session) {
 
 
 
-    // if(nrg < 1){
-    //     document.querySelector(".attack-icon").style.display == 'none';
-    // }
+    
 
 
 
