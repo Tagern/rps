@@ -303,7 +303,6 @@ function fight(player1, player2){
             return {winner: player2, loser: player1, msg: "Attack was blocked!"};
         }
         if(weapon2 === "recharge"){
-            result.winner.wins +1500;
             return {winner: player1, loser: player2, msg: "You got hit!"};
         }
     }
