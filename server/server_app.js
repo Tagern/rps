@@ -250,6 +250,7 @@ var sessionManager = function (id) { // module for managing individual sessions
 
 
         session.players.push(player);
+
         return player;
     }
     
@@ -352,9 +353,13 @@ function resolveDuel(session) {
 
 
 
+<<<<<<< HEAD
     if(nrg < 1){
         document.querySelector(".attack-icon").style.display == 'none';
     }
+=======
+    
+>>>>>>> b33ec32dc9727d69e3d6e292f8e9583711be0288
 
 
 
