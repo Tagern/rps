@@ -197,13 +197,7 @@ function showResult(result){
     }
 
 
-    if(result.attack_attackId){
-        msg = msg + (result.attack_attackId === socket.id ? '<h2 class="you both got hit yo!"></h2>' : '<h2 class="you both got hit yo!"></h2>');
-    }
-
-
     
-
 
 
 
