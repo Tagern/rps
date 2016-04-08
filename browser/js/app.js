@@ -189,6 +189,11 @@ function showResult(result){
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
+    if(p1Energy < 1){
+        console.log("HOT HOT HOT");
+    }
+
+
     roundEl.innerHTML = result.round;
 
     var msg = result.resultMessage;
@@ -196,32 +201,14 @@ function showResult(result){
         msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> b33ec32dc9727d69e3d6e292f8e9583711be0288
     if(result.attack_attackId){
         msg = msg + (result.attack_attackId === socket.id ? '<h2 class="you both got hit yo!"></h2>' : '<h2 class="you both got hit yo!"></h2>');
     }
 
-<<<<<<< HEAD
-=======
-    
-
-
-
-
->>>>>>> b33ec32dc9727d69e3d6e292f8e9583711be0288
     setTimeout(function(){
         resultEl.innerHTML = msg;
     }, 1000);
 }
-
-     if(nrg < 1){
-         document.querySelector(".attack-icon").style.display == 'none';
-     }
-
-
 
 function getUrlVars() {
     var vars = {};
@@ -233,3 +220,4 @@ function getUrlVars() {
 }
 
 // OUR JAVASCRIPT
+

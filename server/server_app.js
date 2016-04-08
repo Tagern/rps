@@ -205,6 +205,7 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
+var nrg = 0;
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -247,7 +248,6 @@ var sessionManager = function (id) { // module for managing individual sessions
             nrg: 2,
             socket: socket
         };
-
 
         session.players.push(player);
 
@@ -308,7 +308,7 @@ function fight(player1, player2){
             return {attack_shielded: player1, shielded_attack: player2, msg: "Attack was blocked!"};
 
         }
-        if(weapon2 === "focus"){
+        if(weapon2 === "focus"){2
             return {attack_hit: player1, focus_hit: player2, msg: "You got hit!"};
         }
         if(weapon2 === "attack"){
@@ -352,14 +352,9 @@ function resolveDuel(session) {
 
 
 
-
-<<<<<<< HEAD
-    if(nrg < 1){
-        document.querySelector(".attack-icon").style.display == 'none';
-    }
-=======
-    
->>>>>>> b33ec32dc9727d69e3d6e292f8e9583711be0288
+    // if(nrg < 1){
+    //     document.querySelector(".attack-icon").style.display == 'none';
+    // }
 
 
 
