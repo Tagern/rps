@@ -300,38 +300,38 @@ function fight(player1, player2){
 
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
-            return {loser: player2, loser: player1, msg: "Attack was blocked!"};
+            return {attack_shielded: player1, shielded_attack: player2, msg: "Attack was blocked!"};
         }
-        if(weapon2 === "recharge"){
-            return {winner: player1, loser: player2, msg: "You got hit!"};
+        if(weapon2 === "focus"){
+            return {attack_hit: player1, focus_hit: player2, msg: "You got hit!"};
         }
         if(weapon2 === "attack"){
-            return {winner: player1, cuntsmasher: player2, msg: "You both got hit!"};
+            return {attack_hit: player1, attack_hit_also: player2, msg: "You both got hit!"};
         }
     }
     
 
     if(weapon1 === "shield"){
         if(weapon2 === "attack"){
-            return {loser: player1, loser: player2, msg: "You blocked the attack!"};
+            return {shielded_attack: player1, attack_shielded: player2, msg: "You blocked the attack!"};
         }
-        if(weapon2 === "recharge"){
-            return {loser: player2, loser: player1, msg: "Your rival focused QI Energy"};
+        if(weapon2 === "focus"){
+            return {shielded: player1, focus: player2, msg: "Your rival focused QI Energy"};
         }
         if(weapon2 === "shield"){
-            return {loser: player2, loser: player1, msg: "You both used shield!"};
+            return {shielded: player1, shielded_also: player2, msg: "You both used shield!"};
         }
     }
 
-    if(weapon1 === "recharge"){
+    if(weapon1 === "focus"){
         if(weapon2 === "attack"){
-            return {winner: player2, loser: player1, msg: "You were hit"};
+            return {focus_hit: player1, attack_hit: player2, msg: "You were hit"};
         }
         if(weapon2 === "shield"){
-            return {loser: player1, loser: player2, msg: "Harnessing the power of QI"};
+            return {focus: player1, shielded_focus: player2, msg: "Harnessing the power of QI"};
         }
-        if(weapon2 === "recharge"){
-            return {loser: player1, loser: player2, msg: "You both harnessed the power of QI"};
+        if(weapon2 === "focus"){
+            return {focus: player1, focus_also: player2, msg: "You both harnessed the power of QI"};
         }
     }
 }
@@ -345,16 +345,46 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
 
+    // ATTACKING 
+        if(result.attack_hit){
+            result.attack_hit.wins = result.attack_hit.wins + 17;
+        }
 
+        if(result.attack_hit_also){
+            result.attack_hit_also.wins = result.attack_hit_also.wins + 17;
+        }
 
-        if(result.winner){
-            result.winner.wins = result.winner.wins +15;
+        if(result.attack_shielded){
+        }
+
+    // SHIELDING
+        if(result.shielded){
+        }
+
+        if(result.shielded_also){
+        }
+        
+        
+        if(result.shielded_attack){
+        }
+
+    //RECHARGING
+        if(result.focus_hit){
+        }
+
+        if(result.focus){
+        }
+
+        if(result.focus_also){
         }
 
 
-        if(result.cuntsmasher){
-            result.cuntsmasher.wins = result.cuntsmasher.wins +48;
-        }
+
+
+
+        // if(result.winner){
+        //     result.winner.wins = result.winner.wins +15;
+        // }
 
 
 
@@ -374,9 +404,6 @@ function resolveDuel(session) {
                 p2Id: player2.socket.id,
                 p2Wins: player2.wins,
                 p2Weapon: player2.weapon,
-
-                bothWins: player1.wins && player2.wins,
-
                 resultMessage: result.msg,
                 winnerId: result.winner ? result.winner.socket.id : null
             };
