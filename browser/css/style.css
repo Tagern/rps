@@ -97,6 +97,9 @@ footer {
   text-align: center;
   width: 50%;
 }
+#game div h1 {
+  font-size: 1.6rem;
+}
 #weaponOpponent img {
   transform: scaleX(-1);
 }
@@ -110,6 +113,7 @@ footer {
   color: darkred;
 }
 #weapon-selector {
+  border-top: solid white 1px;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -119,9 +123,13 @@ footer {
   /*box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);*/
   margin-bottom: 40px;
 }
-#weapon-selector div {
-
-  margin-bottom: 20px;
+.weapon-selector-header h1{
+  margin: 0 auto;
+  background: black;
+  margin-top: -22px;
+  margin-bottom: 40px;
+  max-width: 300px;
+  font-size: 1rem;
 }
 #weapon-selector img {
    cursor: url(../images/pointer.png), auto;
@@ -138,11 +146,34 @@ footer {
   text-align: center;
   width: 50%;
 }
+
+.energy-div {
+  display: flex;
+  /*background-color: whitesmoke;*/
+}
+.energy-div div {
+  flex: auto;
+  text-align: center;
+  width: 50%;
+}
+
+
 .rounds {
   text-align: center;
   padding: 10px 20px;
   /*color: dimgrey;*/
 }
+
+.your-name {
+
+}
+
+.opponents-name  {
+
+}
+
+
+
 .hide {
   display: none;
 }
@@ -181,6 +212,11 @@ footer {
 .show{
   display:block;
 }
+
+
+
+
+
 
 @font-face {
   font-family: 'Emulogic';
