@@ -174,8 +174,13 @@ footer {
   background: none;
 }
 
+.hide {
+  display:none;
+}
 
-
+.show{
+  display:block;
+}
 
 @font-face {
   font-family: 'Emulogic';

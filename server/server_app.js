@@ -205,7 +205,6 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-var nrg = 0;
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -351,19 +350,9 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
 
-
-<<<<<<< HEAD
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
-=======
-
-
-    
-
-    
-
->>>>>>> c8b851f3787b25def94f5acd2ebfd2c0996b492e
 
 
 
@@ -443,6 +432,7 @@ function resolveDuel(session) {
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
                 resultMessage: result.msg,
+
                 winnerId: result.winner ? result.winner.socket.id : null
             };
             element.socket.emit('result', data /*player1, player2, result, session.round*/);
