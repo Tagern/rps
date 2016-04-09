@@ -205,7 +205,7 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-var nrg = 0;
+
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -443,6 +443,8 @@ function resolveDuel(session) {
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
                 resultMessage: result.msg,
+                test: result.nrg,
+
                 winnerId: result.winner ? result.winner.socket.id : null
             };
             element.socket.emit('result', data /*player1, player2, result, session.round*/);
