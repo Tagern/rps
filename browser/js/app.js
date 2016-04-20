@@ -224,7 +224,6 @@ function showResult(result){
 
 
 
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 
     setTimeout(function(){
         resultEl.innerHTML = msg;
