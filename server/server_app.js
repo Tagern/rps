@@ -205,10 +205,6 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -308,39 +304,40 @@ function fight(player1, player2){
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
 
-            return {attack_shielded: player1, shielded_attack: player2, msg: "Attack was blocked!"};
+            return {attack_shielded: player1, p1msg: "You got blocked!", shielded_attack: player2, p2msg: "You blocked it!"};
 
         }
-        if(weapon2 === "focus"){2
-            return {attack_hit: player1, focus_hit: player2, msg: "You got hit!"};
+        if(weapon2 === "focus"){
+            return {attack_hit: player1, p1msg: "You hit them, interupting their focus!" focus_hit: player2, p2msg: "Your were hit and your focus was interupted!"};
+
         }
         if(weapon2 === "attack"){
-            return {attack_hit: player1, attack_hit_also: player2, msg: "You both got hit!"};
+            return {attack_hit: player1, p1msg: "You both got hit!" attack_hit_also: player2, p2msg: "You both got hit!"};
         }
     }
     
 
     if(weapon1 === "shield"){
         if(weapon2 === "attack"){
-            return {shielded_attack: player1, attack_shielded: player2, msg: "You blocked the attack!"};
+            return {shielded_attack: player1, p1msg: "You blocked it!" attack_shielded: player2, p2msg: "You got blocked!"};
         }
         if(weapon2 === "focus"){
-            return {shielded: player1, focus: player2, msg: "Your rival focused QI Energy"};
+            return {shielded: player1, p1msg: "Your shield has no effect, they used focus." focus: player2, p2msg: "You gained focus!"};
         }
         if(weapon2 === "shield"){
-            return {shielded: player1, shielded_also: player2, msg: "You both used shield!"};
+            return {shielded: player1, p1msg: "You both used shield!" shielded_also: player2, p2msg: "You both used shield!"};
         }
     }
 
     if(weapon1 === "focus"){
         if(weapon2 === "attack"){
-            return {focus_hit: player1, attack_hit: player2, msg: "You were hit"};
+            return {focus_hit: player1, p1msg: "Your were hit and your focus was interupted!" attack_hit: player2, p2msg: "You hit them, interupting their focus!"};
         }
         if(weapon2 === "shield"){
-            return {focus: player1, shielded_focus: player2, msg: "Harnessing the power of QI"};
+            return {focus: player1, p1msg: "You gained focus!" shielded_focus: player2, p2msg: "Your shield has no effect, they used focus."};
         }
         if(weapon2 === "focus"){
-            return {focus: player1, focus_also: player2, msg: "You both harnessed the power of QI"};
+            return {focus: player1, p1msg: "You both gained focus!" focus_also: player2, p2msg: "You both gained focus!"};
         }
     }
 }
@@ -353,27 +350,15 @@ function resolveDuel(session) {
     if (player1.weapon && player2.weapon) {
         var result = fight(player1, player2);
 
-
-<<<<<<< HEAD
-    // if(nrg < 1){
-    //     document.querySelector(".attack-icon").style.display == 'none';
-    // }
-=======
-
-
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
 
 
 
-    
-
-    
-
-
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
-
+    // if(nrg < 1){
+    //     document.querySelector(".attack-icon").style.display == 'none';
+    // }
 
 
 
@@ -381,15 +366,27 @@ function resolveDuel(session) {
         if(result.attack_hit){
             result.attack_hit.wins = result.attack_hit.wins + 17;
             result.attack_hit.nrg = result.attack_hit.nrg - 1;
+            
+            if(result.attack_hit.nrg < 1 ){
+                result.attack_hit.nrg = result.attack_hit.nrg = 0;
+            }
         }
 
         if(result.attack_hit_also){
             result.attack_hit_also.wins = result.attack_hit_also.wins + 17;
             result.attack_hit_also.nrg = result.attack_hit_also.nrg - 1;
+
+            if(result.attack_hit_also.nrg < 1 ){
+                result.attack_hit_also.nrg = result.attack_hit_also.nrg = 0;
+            }
         }
 
         if(result.attack_shielded){
             result.attack_shielded.nrg = result.attack_shielded.nrg - 1;
+
+            if(result.attack_shielded.nrg < 1 ){
+                result.attack_shielded.nrg = result.attack_shielded.nrg = 0;
+            }
         }
 
 
@@ -451,15 +448,16 @@ function resolveDuel(session) {
                 p1Energy: player1.nrg,
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
-                resultMessage: result.msg,
-<<<<<<< HEAD
-=======
+                // resultMessage: result.msg,
+                p1Message: result.p1msg,
+                p2Message: result.p2msg,
                 test: result.nrg,
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 
                 winnerId: result.winner ? result.winner.socket.id : null
             };
-            element.socket.emit('result', data /*player1, player2, result, session.round*/);
+           //element.socket.emit('result', data /*player1, player2, result, session.round*/);
+            element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
+
         });
 
         player1.weapon = player2.weapon = null; // reset weapon choices

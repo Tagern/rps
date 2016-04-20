@@ -20,7 +20,12 @@ var yourEnergy = document.querySelector('#energyYou');
 var opponentsEnergy = document.querySelector('#energyOpponent');
 
 var roundEl = document.querySelector('#round');
+
 var resultEl = document.querySelector('#result');
+var resultEl2 = document.querySelector('#result2');
+
+
+
 var selectorEl = document.querySelector('#weapon-selector');
 var weaponChosenYou = document.querySelector('#weaponYou');
 var weaponChosenOpp = document.querySelector('#weaponOpponent');
@@ -172,79 +177,64 @@ function showResult(result){
 
 
     if(result.p1Id === socket.id){ // you
-        scoreYouEl.innerHTML = result.p2Wins+"%";
+        scoreYouEl.innerHTML = result.p2Wins+"abc%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
 
         opponentsEnergy.innerHTML = result.p2Energy;
         yourEnergy.innerHTML = result.p1Energy;
 
+        setTimeout(function(){
+        resultEl.innerHTML = result.p1Message;
+
+    }, 1000);
+
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
         scoreOppEl.innerHTML = result.p2Wins+"%";
-        scoreYouEl.innerHTML = result.p1Wins+"%";
+        scoreYouEl.innerHTML = result.p1Wins+"123%";
 
         opponentsEnergy.innerHTML = result.p1Energy;
         yourEnergy.innerHTML = result.p2Energy;
 
+        setTimeout(function(){
+        resultEl.innerHTML = result.p2Message;
+
+    }, 1000);
+
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
-<<<<<<< HEAD
-    var eneryTest = result.p1Energy;
-    var energyTest2 = result.p2Energy;
-    if(eneryTest < 1){
-        // document.querySelector("#attack").style.display == 'none';
-        document.querySelector(".attack-icon").classList.add("hide");
-    }
-    else if(energyTest > 0){
-        document.querySelector(".attack-icon").classList.remove("hide");   
-    }
+    // var eneryTest = result.p1Energy;
+    // var energyTest2 = result.p2Energy;
+    // if(eneryTest < 1){
+    //     // document.querySelector("#attack").style.display == 'none';
+    //     document.querySelector(".attack-icon").classList.add("hide");
+    // }
+    // else if(energyTest > 0){
+    //     document.querySelector(".attack-icon").classList.remove("hide");   
+    // }
 
-=======
-    
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
+    // if(energyTest2 > 0){
+    //     document.querySelector(".attack-icon").classList.remove("hide"); 
+    // }
 
-    if(energyTest2 > 0){
-        document.querySelector(".attack-icon").classList.remove("hide"); 
-    }
-
-    else if(energyTest2 < 1){
-        document.querySelector(".attack-icon").classList.add("hide");
-    }
+    // else if(energyTest2 < 1){
+    //     document.querySelector(".attack-icon").classList.add("hide");
+    // }
 
     roundEl.innerHTML = result.round;
 
-    var msg = result.resultMessage;
-    if(result.winnerId){
-        msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
-    }
+    // var msg = result.resultMessage;
+    // if(result.winnerId){
+    //     msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
+    // }
 
-<<<<<<< HEAD
-=======
-
-   
-
-
+    // yourMsg.innerHTML = p1msg;
+    // opponentsMsg.innerHTML = p2msg;
     
-
-
-
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
-
-    setTimeout(function(){
-        resultEl.innerHTML = msg;
-    }, 1000);
 }
-
-<<<<<<< HEAD
-=======
-
-
     
 
-
-
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
