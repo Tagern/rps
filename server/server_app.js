@@ -242,18 +242,26 @@ var sessionManager = function (id) { // module for managing individual sessions
     }
 
     function player( socket ) {
+
         var player = {
             weapon: null,
             wins: 0,
             nrg: 2,
             socket: socket
+
         };
+        // var x = {
+        //     nrg: Math.clamp(value, 0, 100)
+        // };
+
+        //result.p1Energy = Math.clamp(value, 0, 100);
 
         session.players.push(player);
+        
+        
 
-        player.prototype.clamp = function(min, max) {
-          return Math.min(Math.max(this, 0), 100);
-        };
+        
+         
 
         return player;
     }
@@ -369,19 +377,10 @@ function resolveDuel(session) {
 
 
     
-    if (player1.nrg <= 0){
-        player1.nrg = 0;
-    }
-    if (player2.nrg <= 0){
-        player2.nrg = 0;
-    }
-        
+   
     
 
-
-
-
-
+ 
 
 
     // ATTACKING 
@@ -432,7 +431,7 @@ function resolveDuel(session) {
 
 
 
-
+        
 
         // if(result.winner){
         //     result.winner.wins = result.winner.wins +15;
@@ -440,7 +439,14 @@ function resolveDuel(session) {
 
 
 
-
+    // if (result.player1.wins.nrg <= 0){
+    //     result.player1.wins.nrg = 0;
+    // }
+    // if (result.player2.wins.nrg <= 0){
+    //     result.player2.wins.nrg = 0;
+    // }
+       
+        
 
         //else tie
     
@@ -448,6 +454,7 @@ function resolveDuel(session) {
 
         session.getPlayers().forEach(function(element){
             // Try sending the object as a whole:
+
             var data = {
                 round: session.getRound(),
                 p1Id: player1.socket.id,
@@ -458,14 +465,17 @@ function resolveDuel(session) {
                 p1Energy: player1.nrg,
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
-                resultMessage: result.msg,
+                //p1resultMessage: result.msg1,
+                //p2resultMessage: result.msg2,
 
                 test: result.nrg,
 
 
                 winnerId: result.winner ? result.winner.socket.id : null
             };
+
             element.socket.emit('result', data /*player1, player2, result, session.round*/);
+            //element.socket.broadcast.emit('math.random')
         });
 
         player1.weapon = player2.weapon = null; // reset weapon choices
