@@ -189,7 +189,7 @@ function showResult(result){
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
-<<<<<<< HEAD
+
     var eneryTest = result.p1Energy;
     var energyTest2 = result.p2Energy;
     if(eneryTest < 1){
@@ -200,9 +200,6 @@ function showResult(result){
         document.querySelector(".attack-icon").classList.remove("hide");   
     }
 
-=======
-    
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 
     if(energyTest2 > 0){
         document.querySelector(".attack-icon").classList.remove("hide"); 
@@ -219,8 +216,6 @@ function showResult(result){
         msg = msg + (result.winnerId === socket.id ? '<h2 class="win"></h2>' : '<h2 class="lose"></h2>');
     }
 
-<<<<<<< HEAD
-=======
 
    
 
@@ -236,15 +231,7 @@ function showResult(result){
     }, 1000);
 }
 
-<<<<<<< HEAD
-=======
 
-
-    
-
-
-
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,
