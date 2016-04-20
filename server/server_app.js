@@ -205,6 +205,10 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -241,14 +245,26 @@ var sessionManager = function (id) { // module for managing individual sessions
     }
 
     function player( socket ) {
+
         var player = {
             weapon: null,
             wins: 0,
             nrg: 2,
             socket: socket
+
         };
+        // var x = {
+        //     nrg: Math.clamp(value, 0, 100)
+        // };
+
+        //result.p1Energy = Math.clamp(value, 0, 100);
 
         session.players.push(player);
+        
+        
+
+        
+         
 
         return player;
     }
@@ -350,6 +366,11 @@ function resolveDuel(session) {
     if (player1.weapon && player2.weapon) {
         var result = fight(player1, player2);
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
@@ -362,6 +383,16 @@ function resolveDuel(session) {
 
 
 
+<<<<<<< HEAD
+=======
+    
+   
+    
+
+ 
+
+
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
     // ATTACKING 
         if(result.attack_hit){
             result.attack_hit.wins = result.attack_hit.wins + 17;
@@ -422,7 +453,7 @@ function resolveDuel(session) {
 
 
 
-
+        
 
         // if(result.winner){
         //     result.winner.wins = result.winner.wins +15;
@@ -430,7 +461,14 @@ function resolveDuel(session) {
 
 
 
-
+    // if (result.player1.wins.nrg <= 0){
+    //     result.player1.wins.nrg = 0;
+    // }
+    // if (result.player2.wins.nrg <= 0){
+    //     result.player2.wins.nrg = 0;
+    // }
+       
+        
 
         //else tie
     
@@ -438,6 +476,7 @@ function resolveDuel(session) {
 
         session.getPlayers().forEach(function(element){
             // Try sending the object as a whole:
+
             var data = {
                 round: session.getRound(),
                 p1Id: player1.socket.id,
@@ -448,6 +487,7 @@ function resolveDuel(session) {
                 p1Energy: player1.nrg,
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
+<<<<<<< HEAD
                 // resultMessage: result.msg,
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
@@ -458,6 +498,19 @@ function resolveDuel(session) {
            //element.socket.emit('result', data /*player1, player2, result, session.round*/);
             element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
 
+=======
+                //p1resultMessage: result.msg1,
+                //p2resultMessage: result.msg2,
+
+                test: result.nrg,
+
+
+                winnerId: result.winner ? result.winner.socket.id : null
+            };
+
+            element.socket.emit('result', data /*player1, player2, result, session.round*/);
+            //element.socket.broadcast.emit('math.random')
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
         });
 
         player1.weapon = player2.weapon = null; // reset weapon choices

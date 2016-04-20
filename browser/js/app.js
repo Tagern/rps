@@ -123,7 +123,13 @@ socket.on('restart', function(){ // opponent disconnected, return to start scree
     gameView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
     scoreYouEl.innerHTML = 0;
+        if (scoreYouEl.innerHTML <= 0){
+            scoreYouEl.innerHTML = 0;
+        }
     scoreOppEl.innerHTML = 0;
+        if (scoreOppEl.innerHTML <= 0){
+            scoreOppEl.innerHTML = 0;
+        }
     roundEl.innerHTML = 0;
     reset();
     frontView.setAttribute('class', ''); // show
@@ -196,10 +202,32 @@ function showResult(result){
         opponentsEnergy.innerHTML = result.p1Energy;
         yourEnergy.innerHTML = result.p2Energy;
 
+<<<<<<< HEAD
         setTimeout(function(){
         resultEl.innerHTML = result.p2Message;
 
     }, 1000);
+=======
+        document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
+    }
+
+    
+
+    var eneryTest = result.p1Energy;
+    var energyTest2 = result.p2Energy;
+    if(eneryTest < 1){
+        // document.querySelector("#attack").style.display == 'none';
+        document.querySelector(".attack-icon").classList.add("hide");
+    }
+    else if(energyTest > 0){
+        document.querySelector(".attack-icon").classList.remove("hide");   
+    }
+
+
+    if(energyTest2 > 0){
+        document.querySelector(".attack-icon").classList.remove("hide"); 
+    }
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
@@ -218,9 +246,12 @@ function showResult(result){
     //     document.querySelector(".attack-icon").classList.remove("hide"); 
     // }
 
+<<<<<<< HEAD
     // else if(energyTest2 < 1){
     //     document.querySelector(".attack-icon").classList.add("hide");
     // }
+=======
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
     roundEl.innerHTML = result.round;
 
@@ -232,8 +263,20 @@ function showResult(result){
     // yourMsg.innerHTML = p1msg;
     // opponentsMsg.innerHTML = p2msg;
     
+<<<<<<< HEAD
 }
     
+=======
+
+
+
+
+    setTimeout(function(){
+        resultEl.innerHTML = msg;
+    }, 1000);
+}
+
+>>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
 function getUrlVars() {
     var vars = {};
