@@ -373,7 +373,6 @@ function resolveDuel(session) {
     // }
 
     
-   
 
     // ATTACKING 
         if(result.attack_hit){
@@ -478,7 +477,7 @@ function resolveDuel(session) {
         setTimeout(function() {
             reset(session);
         }, 5500)
-        
+
     }
 }
 
