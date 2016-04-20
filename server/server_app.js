@@ -205,10 +205,7 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-<<<<<<< HEAD
-=======
 
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -354,11 +351,11 @@ function resolveDuel(session) {
         var result = fight(player1, player2);
 
 
-<<<<<<< HEAD
+
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
-=======
+
 
 
     // if(nrg < 1){
@@ -372,7 +369,7 @@ function resolveDuel(session) {
     
 
 
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
+
 
 
 
@@ -452,10 +449,9 @@ function resolveDuel(session) {
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
                 resultMessage: result.msg,
-<<<<<<< HEAD
-=======
+
                 test: result.nrg,
->>>>>>> 9a41fd9049d83b0879172a202e00438bd6f3110b
+
 
                 winnerId: result.winner ? result.winner.socket.id : null
             };
