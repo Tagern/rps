@@ -205,10 +205,6 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -452,11 +448,7 @@ function resolveDuel(session) {
         }
 
 
-
-        
-
-        // if(result.winner){
-        //     result.winner.wins = result.winner.wins +15;
+sult.winner.wins +15;
         // }
 
 
