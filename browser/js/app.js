@@ -118,7 +118,13 @@ socket.on('restart', function(){ // opponent disconnected, return to start scree
     gameView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
     scoreYouEl.innerHTML = 0;
+        if (scoreYouEl.innerHTML <= 0){
+            scoreYouEl.innerHTML = 0;
+        }
     scoreOppEl.innerHTML = 0;
+        if (scoreOppEl.innerHTML <= 0){
+            scoreOppEl.innerHTML = 0;
+        }
     roundEl.innerHTML = 0;
     reset();
     frontView.setAttribute('class', ''); // show
