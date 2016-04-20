@@ -205,10 +205,6 @@ io.on('connection', function (socket) {
  */
 var sessions = []; // global lookup for active sessions
 var sessionIDCounter = 0;
-<<<<<<< HEAD
-=======
-
->>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
 
 var sessionManager = function (id) { // module for managing individual sessions
     var session;
@@ -324,36 +320,36 @@ function fight(player1, player2){
 
         }
         if(weapon2 === "focus"){
-            return {attack_hit: player1, p1msg: "You hit them, interupting their focus!" focus_hit: player2, p2msg: "Your were hit and your focus was interupted!"};
+            return {attack_hit: player1, p1msg: "You hit them, interupting their focus!", focus_hit: player2, p2msg: "Your were hit and your focus was interupted!"};
 
         }
         if(weapon2 === "attack"){
-            return {attack_hit: player1, p1msg: "You both got hit!" attack_hit_also: player2, p2msg: "You both got hit!"};
+            return {attack_hit: player1, p1msg: "You both got hit!", attack_hit_also: player2, p2msg: "You both got hit!"};
         }
     }
     
 
     if(weapon1 === "shield"){
         if(weapon2 === "attack"){
-            return {shielded_attack: player1, p1msg: "You blocked it!" attack_shielded: player2, p2msg: "You got blocked!"};
+            return {shielded_attack: player1, p1msg: "You blocked it!", attack_shielded: player2, p2msg: "You got blocked!"};
         }
         if(weapon2 === "focus"){
-            return {shielded: player1, p1msg: "Your shield has no effect, they used focus." focus: player2, p2msg: "You gained focus!"};
+            return {shielded: player1, p1msg: "Your shield has no effect, they used focus.", focus: player2, p2msg: "You gained focus!"};
         }
         if(weapon2 === "shield"){
-            return {shielded: player1, p1msg: "You both used shield!" shielded_also: player2, p2msg: "You both used shield!"};
+            return {shielded: player1, p1msg: "You both used shield!", shielded_also: player2, p2msg: "You both used shield!"};
         }
     }
 
     if(weapon1 === "focus"){
         if(weapon2 === "attack"){
-            return {focus_hit: player1, p1msg: "Your were hit and your focus was interupted!" attack_hit: player2, p2msg: "You hit them, interupting their focus!"};
+            return {focus_hit: player1, p1msg: "Your were hit and your focus was interupted!", attack_hit: player2, p2msg: "You hit them, interupting their focus!"};
         }
         if(weapon2 === "shield"){
-            return {focus: player1, p1msg: "You gained focus!" shielded_focus: player2, p2msg: "Your shield has no effect, they used focus."};
+            return {focus: player1, p1msg: "You gained focus!", shielded_focus: player2, p2msg: "Your shield has no effect, they used focus."};
         }
         if(weapon2 === "focus"){
-            return {focus: player1, p1msg: "You both gained focus!" focus_also: player2, p2msg: "You both gained focus!"};
+            return {focus: player1, p1msg: "You both gained focus!", focus_also: player2, p2msg: "You both gained focus!"};
         }
     }
 }
@@ -366,11 +362,6 @@ function resolveDuel(session) {
     if (player1.weapon && player2.weapon) {
         var result = fight(player1, player2);
 
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
     // if(nrg < 1){
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
@@ -381,18 +372,9 @@ function resolveDuel(session) {
     //     document.querySelector(".attack-icon").style.display == 'none';
     // }
 
-
-
-<<<<<<< HEAD
-=======
     
    
-    
 
- 
-
-
->>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
     // ATTACKING 
         if(result.attack_hit){
             result.attack_hit.wins = result.attack_hit.wins + 17;
@@ -487,7 +469,6 @@ function resolveDuel(session) {
                 p1Energy: player1.nrg,
                 p2Energy: player2.nrg,
                 p2Weapon: player2.weapon,
-<<<<<<< HEAD
                 // resultMessage: result.msg,
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
@@ -495,30 +476,18 @@ function resolveDuel(session) {
 
                 winnerId: result.winner ? result.winner.socket.id : null
             };
-           //element.socket.emit('result', data /*player1, player2, result, session.round*/);
-            element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
+           element.socket.emit('result', data /*player1, player2, result, session.round*/);
+            //element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
+            
 
-=======
-                //p1resultMessage: result.msg1,
-                //p2resultMessage: result.msg2,
-
-                test: result.nrg,
-
-
-                winnerId: result.winner ? result.winner.socket.id : null
-            };
-
-            element.socket.emit('result', data /*player1, player2, result, session.round*/);
-            //element.socket.broadcast.emit('math.random')
->>>>>>> 2fd9e752a7dd0e9a05ae1ebba32b17c27231ba28
         });
 
         player1.weapon = player2.weapon = null; // reset weapon choices
 
-        // wait and emit reset
-        setTimeout(function() {
-            reset(session);
-        }, 5500)
+        // // wait and emit reset
+        // setTimeout(function() {
+        //     reset(session);
+        // }, 5500)
     }
 }
 

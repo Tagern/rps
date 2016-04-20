@@ -107,12 +107,10 @@ footer {
   /*color: dimgrey;*/
   text-align: center;
   font-style: italic;
-  background-color:blue;
 }
 #messages {
   text-align: center;
   color: darkred;
-  background-color:pink;
 }
 #weapon-selector {
   border-top: solid white 1px;
