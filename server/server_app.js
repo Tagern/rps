@@ -428,6 +428,8 @@ function resolveDuel(session) {
         }
 
 
+// result.winner.wins +15;
+        // }
 
 
 
@@ -476,6 +478,7 @@ function resolveDuel(session) {
         setTimeout(function() {
             reset(session);
         }, 5500)
+        
     }
 }
 

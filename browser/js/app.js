@@ -208,7 +208,8 @@ function showResult(result){
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
-    
+
+
 
     // var eneryTest = result.p1Energy;
     // var energyTest2 = result.p2Energy;
@@ -250,6 +251,8 @@ function showResult(result){
     //  }, 1000);
 
 }
+
+
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,

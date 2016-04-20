@@ -13,21 +13,16 @@
     var testResult;
     window["Reflect.supports"]( "all", function(tests){
         testResult = tests;
-
          var txt = "WARNING: Your browser does not support ES6 ";
          if(!tests.Promise) alert(txt + "promises.");
          if(!tests.generator) alert(txt + "generators.");
     });
 </script>
     <div class="container">
-
         <div id="frontView">
             <div id="front">
-
                 <h1>8-bit Battle Zone</h1>
-
                 <ul class="menu-list">
-
                     <li><button id="start">start game</button></li>
                     <li><button onclick="window.location.href='how-to-play.html'" id="rules">How to play</button></li>
                 </ul>
@@ -38,7 +33,6 @@
                 <a href=" https://github.com/coprolit/rock-paper-scissors" target="_blank">Source code</a>
             </footer>-->
         </div>
-
         <div id="waitView" class="hide">
             <div id='wait'>
                 <h3>
@@ -49,12 +43,10 @@
                 <!-- CLIPBOARDJS.COM to easily copy url -->
             </div>
         </div>
-
         <div id="gameView"  class='hide'>
             <div class="rounds">
                 <span id="round">0</span> rounds played
             </div>
-
             <div class="energy-div">
                 <div class="your-energy">
                     <h2 id="energyYou" class="purple">2</h2>
@@ -63,7 +55,6 @@
                     <h2 id="energyOpponent" class="purple">2</h2>
                 </div>
             </div>
-
             <div class="score">
                 <div class="your-score">
                     <h1 id="scoreYou">0%</h1>
@@ -72,7 +63,6 @@
                     <h1 id="scoreOpponent">0%</h1>
                 </div>
             </div>
-
             <div id='game'>
                 <div class="your-name">
                     <h1 class="you">You</h1>
@@ -88,25 +78,19 @@
                 <h2 id="result"></h2>
             </div>
 
-            <div id="weapon-selector">
-
-<!--
-                    <div class="attack-icon">
-                        <a id="attack" type="button"><img src='images/attack-icon.png'></a>
-                    </div> -->
-
+                <h2 id="result"></h2>
+            </div>
+            <div id="weapon-selector"> 
                 <div class="weapon-selector-header">
-                    <h1>Choose your move</h1>
-                <a id="attack" type="button" class="attack-icon"><img src='images/attack-icon.png'></a>
-                <a id="shield" type="button" class="shield-icon"><img src='images/shield-icon.png'></a>
-                <a id="focus" type="button"><img src='images/recharge-icon.png'></a>
-
+                        <h1>Choose your move</h1>
+                    <a id="attack" type="button" class="attack-icon"><img src='images/attack-icon.png'></a>
+                    <a id="shield" type="button" class="shield-icon"><img src='images/shield-icon.png'></a>
+                    <a id="focus" type="button"><img src='images/recharge-icon.png'></a>
+                </div>
             </div>
         </div>
     </div>
-
     <script src="js/socket.io.js"></script>
     <script src="js/app.js"></script>
-
 </body>
 </html>
