@@ -34,8 +34,13 @@ btnStart.addEventListener('click', createGame);
 
 var btnAttack = document.querySelector('#attack');
 btnAttack.addEventListener('click', on_Attack);
+
+var btnAttack_empty = document.querySelector('#attack-empty');
+btnAttack_empty.addEventListener('click', on_Empty);
+
 var btnShield = document.querySelector('#shield');
 btnShield.addEventListener('click', on_Shield);
+
 var btnFocus = document.querySelector('#focus');
 btnFocus.addEventListener('click', on_Focus);
 
@@ -45,6 +50,9 @@ function createGame(){
 
 function on_Attack() {
     socket.emit('choice', "attack");
+}
+function on_Empty(){
+    alert("Fuck!!!!");
 }
 function on_Shield() {
     socket.emit('choice', "shield");
@@ -195,14 +203,19 @@ function showResult(result){
 
     var eneryTest = result.p1Energy;
 
+
     if(eneryTest == 0){
         // document.querySelector(".attack-icon").classList.add("hide");
         document.querySelector(".attack-icon").style.visibility='hidden';
+        document.querySelector(".attack-icon-empty").style.display='block';
+
 
     }
     else{
        // document.querySelector(".attack-icon").classList.remove("hide");   
         document.querySelector(".attack-icon").style.visibility='visible';
+        // document.querySelector(".attack-icon-empty").style.visibility='hidden';
+
 
     }
 
@@ -225,14 +238,17 @@ function showResult(result){
 
         var energyTest2 = result.p2Energy;
 
-        if(energyTest2 < 1){
-            //document.querySelector(".attack-icon").classList.add("hide");
+
+        if(energyTest2 == 0){
             document.querySelector(".attack-icon").style.visibility='hidden';
+            document.querySelector(".attack-icon-empty").style.display='block';
+
 
         }
-        else{
-            //document.querySelector(".attack-icon").classList.remove("hide");   
+        else{  
             document.querySelector(".attack-icon").style.visibility='visible';
+            document.querySelector(".attack-icon-empty").style.display='none';
+
 
         }
 

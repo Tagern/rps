@@ -205,6 +205,11 @@ footer {
   background: none;
 }
 
+.attack-icon-empty{
+  -webkit-filter: invert(100%);
+  display:none;
+}
+
 .hide {
   display:none;
 }
