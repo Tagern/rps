@@ -214,7 +214,7 @@ function showResult(result){
     else{
        // document.querySelector(".attack-icon").classList.remove("hide");   
         document.querySelector(".attack-icon").style.visibility='visible';
-        // document.querySelector(".attack-icon-empty").style.visibility='hidden';
+        document.querySelector(".attack-icon-empty").style.display='none';
 
 
     }
