@@ -180,7 +180,6 @@ function showResult(result){
     // };
     
 
-
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
@@ -191,7 +190,7 @@ function showResult(result){
         setTimeout(function(){
         resultEl.innerHTML = result.p1Message;
 
-    }, 1000);
+        }, 1000);
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
@@ -201,41 +200,15 @@ function showResult(result){
         opponentsEnergy.innerHTML = result.p1Energy;
         yourEnergy.innerHTML = result.p2Energy;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
         setTimeout(function(){
         resultEl.innerHTML = result.p2Message;
 
-    }, 1000);
+        }, 1000);
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
     
-
-    var eneryTest = result.p1Energy;
-    var energyTest2 = result.p2Energy;
-    if(eneryTest < 1){
-        // document.querySelector("#attack").style.display == 'none';
-        document.querySelector(".attack-icon").classList.add("hide");
-    }
-    else if(energyTest > 0){
-        document.querySelector(".attack-icon").classList.remove("hide");   
-    }
-
-
-    if(energyTest2 > 0){
-        document.querySelector(".attack-icon").classList.remove("hide"); 
-    }
-<<<<<<< HEAD
-=======
-
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
-
-        document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
-    }
 
     // var eneryTest = result.p1Energy;
     // var energyTest2 = result.p2Energy;
@@ -251,17 +224,14 @@ function showResult(result){
     //     document.querySelector(".attack-icon").classList.remove("hide"); 
     // }
 
-<<<<<<< HEAD
-    // else if(energyTest2 < 1){
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
-=======
-
     // else if(energyTest2 < 1){
     //     document.querySelector(".attack-icon").classList.add("hide");
     // }
 
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
+
+    // else if(energyTest2 < 1){
+    //     document.querySelector(".attack-icon").classList.add("hide");
+    // }
 
     roundEl.innerHTML = result.round;
 
@@ -273,31 +243,13 @@ function showResult(result){
     // yourMsg.innerHTML = p1msg;
     // opponentsMsg.innerHTML = p2msg;
     
-<<<<<<< HEAD
     
-=======
-
-}
-    
-
-
-
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
 
     // setTimeout(function(){
-    //     resultEl.innerHTML = msg;
-    // }, 1000);
+    //      resultEl.innerHTML = msg;
+    //  }, 1000);
 
-<<<<<<< HEAD
-=======
-    setTimeout(function(){
-        resultEl.innerHTML = msg;
-    }, 1000);
 }
-
-
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
-
 function getUrlVars() {
     var vars = {};
     var parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi,

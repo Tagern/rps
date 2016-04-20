@@ -404,12 +404,6 @@ function resolveDuel(session) {
 
 
 
-
-        // else tie
-
-        //else tie
-
-
     // SHIELDING
         if(result.shielded){
         }
@@ -434,8 +428,6 @@ function resolveDuel(session) {
         }
 
 
-sult.winner.wins +15;
-        // }
 
 
 
@@ -472,18 +464,18 @@ sult.winner.wins +15;
 
                 winnerId: result.winner ? result.winner.socket.id : null
             };
-           element.socket.emit('result', data /*player1, player2, result, session.round*/);
-            //element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
+           //element.socket.emit('result', data /*player1, player2, result, session.round*/);
+            element.socket.broadcast.emit('result', data /*player1, player2, result, session.round*/);
             
 
         });
 
         player1.weapon = player2.weapon = null; // reset weapon choices
 
-        // // wait and emit reset
-        // setTimeout(function() {
-        //     reset(session);
-        // }, 5500)
+        // wait and emit reset
+        setTimeout(function() {
+            reset(session);
+        }, 5500)
     }
 }
 
