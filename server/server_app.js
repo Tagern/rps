@@ -251,6 +251,10 @@ var sessionManager = function (id) { // module for managing individual sessions
 
         session.players.push(player);
 
+        player.prototype.clamp = function(min, max) {
+          return Math.min(Math.max(this, 0), 100);
+        };
+
         return player;
     }
     
@@ -365,7 +369,13 @@ function resolveDuel(session) {
 
 
     
-
+    if (player1.nrg <= 0){
+        player1.nrg = 0;
+    }
+    if (player2.nrg <= 0){
+        player2.nrg = 0;
+    }
+        
     
 
 
