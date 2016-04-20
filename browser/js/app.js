@@ -201,10 +201,7 @@ function showResult(result){
         opponentsEnergy.innerHTML = result.p1Energy;
         yourEnergy.innerHTML = result.p2Energy;
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
         setTimeout(function(){
         resultEl.innerHTML = result.p2Message;
 
@@ -229,10 +226,7 @@ function showResult(result){
     if(energyTest2 > 0){
         document.querySelector(".attack-icon").classList.remove("hide"); 
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
@@ -251,17 +245,7 @@ function showResult(result){
     //     document.querySelector(".attack-icon").classList.remove("hide"); 
     // }
 
-<<<<<<< HEAD
-    // else if(energyTest2 < 1){
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
-=======
 
-    // else if(energyTest2 < 1){
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
-
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
 
     roundEl.innerHTML = result.round;
 
@@ -273,30 +257,21 @@ function showResult(result){
     // yourMsg.innerHTML = p1msg;
     // opponentsMsg.innerHTML = p2msg;
     
-<<<<<<< HEAD
-    
-=======
 
-}
+
+
     
 
 
 
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
 
-    // setTimeout(function(){
-    //     resultEl.innerHTML = msg;
-    // }, 1000);
-
-<<<<<<< HEAD
-=======
-    setTimeout(function(){
-        resultEl.innerHTML = msg;
-    }, 1000);
-}
+//     setTimeout(function(){
+//         resultEl.innerHTML = msg;
+//     }, 1000);
+// }
 
 
->>>>>>> 8d92b2453db47923e28b2eaa5f75c698cedfa1eb
+
 
 function getUrlVars() {
     var vars = {};

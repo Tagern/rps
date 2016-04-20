@@ -434,7 +434,7 @@ function resolveDuel(session) {
         }
 
 
-sult.winner.wins +15;
+result.winner.wins +15;
         // }
 
 
