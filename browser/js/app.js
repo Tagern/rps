@@ -192,7 +192,25 @@ function showResult(result){
 
         }, 1000);
 
-        document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
+
+    var eneryTest = result.p1Energy;
+
+    if(eneryTest == 0){
+        // document.querySelector(".attack-icon").classList.add("hide");
+        document.querySelector(".attack-icon").style.visibility='hidden';
+
+    }
+    else{
+       // document.querySelector(".attack-icon").classList.remove("hide");   
+        document.querySelector(".attack-icon").style.visibility='visible';
+
+    }
+
+
+
+
+
+    document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
     } else { // opponent
         scoreOppEl.innerHTML = result.p2Wins+"%";
         scoreYouEl.innerHTML = result.p1Wins+"%";
@@ -205,34 +223,29 @@ function showResult(result){
 
         }, 1000);
 
+        var energyTest2 = result.p2Energy;
+
+        if(energyTest2 < 1){
+            //document.querySelector(".attack-icon").classList.add("hide");
+            document.querySelector(".attack-icon").style.visibility='hidden';
+
+        }
+        else{
+            //document.querySelector(".attack-icon").classList.remove("hide");   
+            document.querySelector(".attack-icon").style.visibility='visible';
+
+        }
+
+
+
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
 
 
 
-    // var eneryTest = result.p1Energy;
-    // var energyTest2 = result.p2Energy;
-    // if(eneryTest < 1){
-    //     // document.querySelector("#attack").style.display == 'none';
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
-    // else if(energyTest > 0){
-    //     document.querySelector(".attack-icon").classList.remove("hide");   
-    // }
 
-    // if(energyTest2 > 0){
-    //     document.querySelector(".attack-icon").classList.remove("hide"); 
-    // }
-
-    // else if(energyTest2 < 1){
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
-
-
-    // else if(energyTest2 < 1){
-    //     document.querySelector(".attack-icon").classList.add("hide");
-    // }
+    
 
     roundEl.innerHTML = result.round;
 
