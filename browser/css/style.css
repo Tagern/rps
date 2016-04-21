@@ -9,6 +9,8 @@ body {
   margin: 0;
   color: white;
   background-color: black; 
+  height: 100%;
+  max-height: 100vh;
 }
 
 a {
@@ -68,7 +70,7 @@ footer {
 .container {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
 }
 
 
@@ -116,7 +118,7 @@ footer {
 
 
 #weaponOpponent img {
-  transform: scaleX(-1);
+  /*transform: scaleX(-1);*/
 }
 #result {
   /*color: dimgrey;*/
@@ -130,13 +132,15 @@ footer {
 #weapon-selector {
   border-top: solid white 1px;
   position: absolute;
-  bottom: 0;
+  bottom: 0px;
   width: 100%;
+  height: 170px;
+  min-height: 170px;
   text-align: center;
   /*background-color: whitesmoke;*/
-  padding: 10px 0;
+  padding: 10px 0 0 0;
   /*box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);*/
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
   z-index: 5000;
   background-color: black;
 
@@ -146,16 +150,27 @@ footer {
   background: black;
   margin-top: -22px;
   margin-bottom: 40px;
-  max-width: 400px;
+  max-width: 380px;
   font-size: 1rem;
 }
 
 #waiting-for-opponent {
   display: none;
 }
+#weapons-list {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /*display: inline-block;*/
+  z-index: 7000;
+}
 
-
+#weapon-selector ul {
+  
+}
 #weapon-selector ul li{
+  /*position: relative;*/
   display: inline-block;
 }
 
@@ -164,8 +179,12 @@ footer {
    cursor: url(../images/pointer.png), auto;
 }
 #weapon-selector a {
-  margin: 0 5px;
+  margin: 0 15px;
 }
+#weapon-selector p {
+  font-size: 14px;
+}
+  
 .score {
   display: flex;
 
@@ -268,9 +287,19 @@ footer {
 }
 
 .your-smash {
+<<<<<<< HEAD
   padding-left: 40px;
   float: left;
   display:none;
+=======
+  /*padding-left: 40px;*/
+  /*float: left;*/
+  position: absolute;
+  left: 40px;
+  z-index: 4001;
+  padding: 0;
+
+>>>>>>> add748b6fadf0339dd0f7fbed8535308e72fbbec
 }
 
 .your-smash p{
@@ -279,9 +308,18 @@ footer {
 }
 
 .opponents-smash {
+<<<<<<< HEAD
   padding-right: 40px;
    float: right;
    display:none;
+=======
+  /*padding-right: 40px;*/
+  /*float: right;*/
+  position: absolute;
+  right: 40px;
+  z-index: 4000;
+  padding: 0;
+>>>>>>> add748b6fadf0339dd0f7fbed8535308e72fbbec
 }
 
 .opponents-smash p {
