@@ -301,11 +301,14 @@ function showResult(result){
     }
 
 
+
     setTimeout(function(){
        roundEl.innerHTML = result.round;
       }, 3500);
 
-    
+    if(result.smash > 0){
+        document.querySelector(".smashClicker").style.display='block';
+    }
 
     // var msg = result.resultMessage;
     // if(result.winnerId){

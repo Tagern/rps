@@ -512,7 +512,7 @@ function resolveDuel(session) {
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
 
-                smash: result.smash,
+                smash: player1.smash,
 
                 test: result.nrg,
 
