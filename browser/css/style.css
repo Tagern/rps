@@ -146,9 +146,14 @@ footer {
   background: black;
   margin-top: -22px;
   margin-bottom: 40px;
-  max-width: 300px;
+  max-width: 400px;
   font-size: 1rem;
 }
+
+#waiting-for-opponent {
+  display: none;
+}
+
 
 #weapon-selector ul li{
   display: inline-block;
@@ -262,6 +267,25 @@ footer {
   
 }
 
+.your-smash {
+  padding-left: 40px;
+  float: left;
+}
+
+.your-smash p{
+
+  
+}
+
+.opponents-smash {
+  padding-right: 40px;
+   float: right;
+}
+
+.opponents-smash p {
+ 
+  
+}
 
 
 

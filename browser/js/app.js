@@ -24,8 +24,11 @@ var roundEl = document.querySelector('#round');
 var resultEl = document.querySelector('#result');
 
 
-
 var selectorEl = document.querySelector('#weapon-selector');
+
+var selectorHeader1 = document.querySelector('#make-your-move');
+var selectorHeader2 = document.querySelector('#waiting-for-opponent');
+
 var weaponChosenYou = document.querySelector('#weaponYou');
 var weaponChosenOpp = document.querySelector('#weaponOpponent');
 
@@ -159,7 +162,8 @@ socket.on('start', function(){ // both clients are ready, let the game begin
 socket.on('choice:confirmed', function(weapon){
     if(weapon){ // user You
         weaponChosenYou.innerHTML = getImage(weapon);
-        selectorEl.setAttribute('class', 'hide'); // hide
+        selectorHeader1.setAttribute('class', 'hide'); // hide
+        selectorHeader2.style.display='block'; // show.
     } else { // opponent
         weaponChosenOpp.innerHTML = getImage();
     }
