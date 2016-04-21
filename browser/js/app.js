@@ -206,23 +206,26 @@ function showResult(result){
 
     var eneryTest = result.p1Energy;
 
-
+// HIDE AND SHOW ATTACK ICON FOR PLAYER 1
     if(eneryTest == 0){
         // document.querySelector(".attack-icon").classList.add("hide");
         document.querySelector(".attack-icon").style.visibility='hidden';
         document.querySelector(".attack-icon-empty").style.display='block';
-
-
     }
     else{
        // document.querySelector(".attack-icon").classList.remove("hide");   
         document.querySelector(".attack-icon").style.visibility='visible';
         document.querySelector(".attack-icon-empty").style.display='none';
-
-
     }
 
+// HIDE AND SHOW SMASH ATTACK FOR PLAYER 1
+    if(scoreOppEl >= 10){
+        document.querySelector(".your-smash").style.display='block'; 
+    }
+    else{
+        document.querySelector(".your-smash").style.display='none';
 
+    }
 
 
 
@@ -242,19 +245,17 @@ function showResult(result){
         var energyTest2 = result.p2Energy;
 
 
+// HIDE AND SHOW ATTACK ICON FOR PLAYER 2
         if(energyTest2 == 0){
             document.querySelector(".attack-icon").style.visibility='hidden';
             document.querySelector(".attack-icon-empty").style.display='block';
-
-
         }
         else{  
             document.querySelector(".attack-icon").style.visibility='visible';
             document.querySelector(".attack-icon-empty").style.display='none';
-
-
         }
 
+// HIDE AND SHOW SMASH ATTACK FOR PLAYER 2
 
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
