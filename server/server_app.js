@@ -218,7 +218,7 @@ var sessionManager = function (id) { // module for managing individual sessions
         sessionIDCounter++;
         session = {
             id: sessionIDCounter,
-            round: 0,
+            round: 1,
             players: []
         };
         sessions.push(session);
@@ -490,9 +490,9 @@ function resolveDuel(session) {
         
 
         //else tie
-    
+        
+        
         session.incrementRound();
-
         session.getPlayers().forEach(function(element){
             // Try sending the object as a whole:
 
@@ -523,11 +523,13 @@ function resolveDuel(session) {
 
         // wait and emit reset
         setTimeout(function() {
+            
             reset(session);
         }, 5000)
 
     }
 }
+
 
 function reset(session){ // tell connected clients of session to reset UI for a new round
     session.getPlayers().forEach(function(element){
