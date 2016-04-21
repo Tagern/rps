@@ -376,7 +376,7 @@ function resolveDuel(session) {
 
     // ATTACKING 
         if(result.attack_hit){
-            result.attack_hit.wins = result.attack_hit.wins + 17;
+            result.attack_hit.wins = result.attack_hit.wins + Math.floor((Math.random() * 5) + 15);
             result.attack_hit.nrg = result.attack_hit.nrg - 1;
             
             if(result.attack_hit.nrg < 1 ){
@@ -385,7 +385,7 @@ function resolveDuel(session) {
         }
 
         if(result.attack_hit_also){
-            result.attack_hit_also.wins = result.attack_hit_also.wins + 17;
+            result.attack_hit_also.wins = result.attack_hit_also.wins + Math.floor((Math.random() * 5) + 15);
             result.attack_hit_also.nrg = result.attack_hit_also.nrg - 1;
 
             if(result.attack_hit_also.nrg < 1 ){
