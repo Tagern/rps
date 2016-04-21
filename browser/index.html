@@ -41,7 +41,12 @@
                     Waiting for opponent...
                 </h3>
                 <p>Invite your rival to play! Send them this link: </p>
-                <div class="invite-url"></div>
+
+
+                <button class="btn" data-clipboard-target=".invite-url">
+                    <div class="invite-url" alt="Copy to clipboard" ></div>
+                </button>
+
                 <!-- CLIPBOARDJS.COM to easily copy url -->
             </div>
         </div>
@@ -100,6 +105,10 @@
     <script src="js/socket.io.js"></script>
     <script src="js/app.js"></script>
 
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.5.10/dist/clipboard.min.js"></script>
+    <script>
+    var clipboard = new Clipboard('.btn');
+    </script>
 
 </body>
 </html>
