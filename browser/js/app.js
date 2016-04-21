@@ -8,6 +8,8 @@
 var socket = io();
 
 // views
+var fullContainer = document.querySelector('.container');
+
 var frontView = document.querySelector('#frontView');
 var waitView = document.querySelector('#waitView');
 var gameView = document.querySelector('#gameView');
@@ -204,6 +206,15 @@ function showResult(result){
     selectorHeader1.style.display='block'; // show.
     selectorHeader2.style.display='none'; // hide
 
+    // if(result.p1Wins > 50 || result.p2Wins > 50){
+    //     hideGame();
+    //     showWin();
+    // }
+
+//SHOW SMASH CLICKER
+    // if(){
+    //     document.querySelector(".smashClicker").style.display='block';
+    // }
 
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
@@ -239,7 +250,6 @@ function showResult(result){
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
     if(result.p2Wins > 0){
         document.querySelector(".opponents-smash").style.display='block';
-
     }
 
 
@@ -320,4 +330,21 @@ function getUrlVars() {
 }
 
 // OUR JAVASCRIPT
+
+function hideGame(){
+    document.querySelector(".container").style.display='none';
+}
+
+function showGame(){
+    document.querySelector(".container").style.display='block';
+}
+
+function hideWin(){
+    document.querySelector(".winScreen").style.display='none';
+}
+
+function showWin(){
+    document.querySelector(".winScreen").style.display='block';
+}
+
 

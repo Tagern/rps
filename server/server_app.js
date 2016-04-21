@@ -246,6 +246,7 @@ var sessionManager = function (id) { // module for managing individual sessions
             weapon: null,
             wins: 0,
             nrg: 2,
+            smash: 0,
             socket: socket
 
         };
@@ -324,7 +325,7 @@ function fight(player1, player2){
             return {attack_hit: player1, p1msg: "You both got hit!", attack_hit_also: player2, p2msg: "You both got hit!"};
         }
         if(weapon2 === "smash"){
-            return {attack_hit: player1, p1msg: "You both gained focus!", smash_hit: player2, p2msg: "You both gained focus!"};
+            return {attack_hit: player2, p2msg: "You just got hit by the smash, get ready!", smash_hit: player1, p1msg: "You hit the smash, get ready!"};
         }
     }
     
@@ -340,7 +341,7 @@ function fight(player1, player2){
             return {shielded: player1, p1msg: "You both used shield!", shielded_also: player2, p2msg: "You both used shield!"};
         }
         if(weapon2 === "smash"){
-            return {shielded_smash: player1, p1msg: "You both gained focus!", smash_shielded: player2, p2msg: "You both gained focus!"};
+            return {shielded_smash: player1, p1msg: "You shielded the smash, nice!", smash_shielded: player2, p2msg: "Your smash got shielded!"};
         }
     }
 
@@ -355,22 +356,22 @@ function fight(player1, player2){
             return {focus: player1, p1msg: "You both gained focus!", focus_also: player2, p2msg: "You both gained focus!"};
         }
         if(weapon2 === "smash"){
-            return {focus_smash: player1, p1msg: "You both gained focus!", smash_hit: player2, p2msg: "You both gained focus!"};
+            return {focus_smash: player2, p2msg: "You just got hit by the smash, get ready!", smash_hit: player1, p1msg: "You hit the smash, get ready!"};
         }
     }
 
     if(weapon1 === "smash"){
         if(weapon2 === "attack"){
-            return {smash_hit: player1, p1msg: "Your were hit and your focus was interupted!", attack_hit: player2, p2msg: "You hit them, interupting their focus!"};
+            return {smash_hit: player1, p1msg: "You hit the smash, get ready!", attack_hit: player2, p2msg: "You just got hit by the smash, get ready!"};
         }
         if(weapon2 === "shield"){
-            return {smash_shielded: player1, p1msg: "You gained focus!", shielded_smash: player2, p2msg: "Your shield has no effect, they used focus."};
+            return {smash_shielded: player1, p1msg: "Your smash got shielded!", shielded_smash: player2, p2msg: "You shielded the smash, nice!"};
         }
         if(weapon2 === "focus"){
-            return {smash_hit: player1, p1msg: "You both gained focus!", focus_smash: player2, p2msg: "You both gained focus!"};
+            return {smash_hit: player1, p1msg: "You hit the smash, get ready!", focus_smash: player2, p2msg: "You just got hit by the smash, get ready!"};
         }
         if(weapon2 === "smash"){
-            return {smash_hit: player1, p1msg: "You both gained focus!", smash_hit_also: player2, p2msg: "You both gained focus!"};
+            return {smash_hit: player1, p1msg: "You both hit the smash, get ready!", smash_hit_also: player2, p2msg: "You both hit the smash, get ready!"};
         }
     }
 }
@@ -451,6 +452,7 @@ function resolveDuel(session) {
         if(result.smash_hit){
             result.smash_hit.wins = result.smash_hit.wins + 50;
             result.smash_hit.nrg = result.smash_hit.nrg - 2;
+            result.smash_hit.smash = result.smash_hit.smash +1;
             
             if(result.smash_hit.nrg < 1 ){
                 result.smash_hit.nrg = result.smash_hit.nrg = 0;
@@ -509,6 +511,9 @@ function resolveDuel(session) {
                 // resultMessage: result.msg,
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
+
+                smash: result.smash,
+
                 test: result.nrg,
 
                 winnerId: result.winner ? result.winner.socket.id : null
