@@ -96,6 +96,7 @@ function reset(){ // reset UI between rounds
     selectorEl.setAttribute('class', ''); // show
     document.querySelector("#weapon-selector").style.display='block'; //weapon-selector show
     document.querySelector("#weapons-list").style.display='block'; //weapons show
+
 }
 
 function countDown(){
@@ -129,6 +130,7 @@ socket.on('connect', function(){
 });
 
 socket.on('reset', function(){
+    
     reset();
 });
 
@@ -299,9 +301,11 @@ function showResult(result){
     }
 
 
-    
+    setTimeout(function(){
+       roundEl.innerHTML = result.round;
+      }, 3500);
 
-    roundEl.innerHTML = result.round;
+    
 
     // var msg = result.resultMessage;
     // if(result.winnerId){
