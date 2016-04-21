@@ -270,6 +270,7 @@ footer {
 .your-smash {
   padding-left: 40px;
   float: left;
+  display:none;
 }
 
 .your-smash p{
@@ -280,6 +281,7 @@ footer {
 .opponents-smash {
   padding-right: 40px;
    float: right;
+   display:none;
 }
 
 .opponents-smash p {

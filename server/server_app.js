@@ -315,16 +315,16 @@ function fight(player1, player2){
 
     if(weapon1 === "attack"){
         if(weapon2 === "shield"){
-
             return {attack_shielded: player1, p1msg: "You got blocked!", shielded_attack: player2, p2msg: "You blocked it!"};
-
         }
         if(weapon2 === "focus"){
             return {attack_hit: player1, p1msg: "You hit them, interupting their focus!", focus_hit: player2, p2msg: "Your were hit and your focus was interupted!"};
-
         }
         if(weapon2 === "attack"){
             return {attack_hit: player1, p1msg: "You both got hit!", attack_hit_also: player2, p2msg: "You both got hit!"};
+        }
+        if(weapon2 === "smash"){
+            return {attack_hit: player1, p1msg: "You both gained focus!", smash_hit: player2, p2msg: "You both gained focus!"};
         }
     }
     
@@ -339,6 +339,9 @@ function fight(player1, player2){
         if(weapon2 === "shield"){
             return {shielded: player1, p1msg: "You both used shield!", shielded_also: player2, p2msg: "You both used shield!"};
         }
+        if(weapon2 === "smash"){
+            return {shielded_smash: player1, p1msg: "You both gained focus!", smash_shielded: player2, p2msg: "You both gained focus!"};
+        }
     }
 
     if(weapon1 === "focus"){
@@ -350,6 +353,24 @@ function fight(player1, player2){
         }
         if(weapon2 === "focus"){
             return {focus: player1, p1msg: "You both gained focus!", focus_also: player2, p2msg: "You both gained focus!"};
+        }
+        if(weapon2 === "smash"){
+            return {focus_smash: player1, p1msg: "You both gained focus!", smash_hit: player2, p2msg: "You both gained focus!"};
+        }
+    }
+
+    if(weapon1 === "smash"){
+        if(weapon2 === "attack"){
+            return {smash_hit: player1, p1msg: "Your were hit and your focus was interupted!", attack_hit: player2, p2msg: "You hit them, interupting their focus!"};
+        }
+        if(weapon2 === "shield"){
+            return {smash_shielded: player1, p1msg: "You gained focus!", shielded_smash: player2, p2msg: "Your shield has no effect, they used focus."};
+        }
+        if(weapon2 === "focus"){
+            return {smash_hit: player1, p1msg: "You both gained focus!", focus_smash: player2, p2msg: "You both gained focus!"};
+        }
+        if(weapon2 === "smash"){
+            return {smash_hit: player1, p1msg: "You both gained focus!", smash_hit_also: player2, p2msg: "You both gained focus!"};
         }
     }
 }
@@ -424,6 +445,33 @@ function resolveDuel(session) {
 
         if(result.focus_also){
             result.focus_also.nrg = result.focus_also.nrg + 1;
+        }
+
+// SMASH 
+        if(result.smash_hit){
+            result.smash_hit.wins = result.smash_hit.wins + 50;
+            result.smash_hit.nrg = result.smash_hit.nrg - 2;
+            
+            if(result.smash_hit.nrg < 1 ){
+                result.smash_hit.nrg = result.smash_hit.nrg = 0;
+            }
+        }
+
+        if(result.smash_hit_also){
+            result.smash_hit_also.wins = result.smash_hit_also.wins + 50;
+            result.smash_hit_also.nrg = result.smash_hit_also.nrg - 2;
+
+            if(result.smash_hit_also.nrg < 1 ){
+                result.smash_hit_also.nrg = result.smash_hit_also.nrg = 0;
+            }
+        }
+
+        if(result.smash_shielded){
+            result.smash_shielded.nrg = result.smash_shielded.nrg - 2;
+
+            if(result.smash_shielded.nrg < 1 ){
+                result.smash_shielded.nrg = result.smash_shielded.nrg = 0;
+            }
         }
 
 

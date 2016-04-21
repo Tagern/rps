@@ -23,7 +23,6 @@ var roundEl = document.querySelector('#round');
 
 var resultEl = document.querySelector('#result');
 
-
 var selectorEl = document.querySelector('#weapon-selector');
 
 var selectorHeader1 = document.querySelector('#make-your-move');
@@ -47,6 +46,9 @@ btnShield.addEventListener('click', on_Shield);
 var btnFocus = document.querySelector('#focus');
 btnFocus.addEventListener('click', on_Focus);
 
+var btnFocus = document.querySelector('#your-smash');
+btnFocus.addEventListener('click', on_Smash);
+
 function createGame(){
     socket.emit('create');
 }
@@ -62,6 +64,9 @@ function on_Shield() {
 }
 function on_Focus() {
     socket.emit('choice', "focus");
+}
+function on_Smash() {
+    socket.emit('choice', "smash");
 }
 
 function getImage(weapon) {
@@ -199,6 +204,7 @@ function showResult(result){
     selectorHeader1.style.display='block'; // show.
     selectorHeader2.style.display='none'; // hide
 
+
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
@@ -206,13 +212,12 @@ function showResult(result){
         opponentsEnergy.innerHTML = result.p2Energy;
         yourEnergy.innerHTML = result.p1Energy;
 
-        setTimeout(function(){
-        resultEl.innerHTML = result.p1Message;
+            setTimeout(function(){
+            resultEl.innerHTML = result.p1Message;
 
-        }, 1000);
+            }, 1000);
 
-
-    var eneryTest = result.p1Energy;
+        var eneryTest = result.p1Energy;
 
 // HIDE AND SHOW ATTACK ICON FOR PLAYER 1
     if(eneryTest == 0){
@@ -227,17 +232,19 @@ function showResult(result){
     }
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1
-    if(scoreOppEl >= 10){
+    if(result.p1Wins > 0){
         document.querySelector(".your-smash").style.display='block'; 
     }
-    else{
-        document.querySelector(".your-smash").style.display='none';
+
+// HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
+    if(result.p2Wins > 0){
+        document.querySelector(".opponents-smash").style.display='block';
 
     }
-
 
 
     document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
+
     } else { // opponent
         scoreOppEl.innerHTML = result.p2Wins+"%";
         scoreYouEl.innerHTML = result.p1Wins+"%";
@@ -263,14 +270,23 @@ function showResult(result){
             document.querySelector(".attack-icon-empty").style.display='none';
         }
 
-// HIDE AND SHOW SMASH ATTACK FOR PLAYER 2
+// HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
+            if(result.p2Wins > 0){
+                document.querySelector(".your-smash").style.display='block';
+
+            }
+
+// HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
+
+            if(result.p1Wins > 0){
+                document.querySelector(".opponents-smash").style.display='block'; 
+            }
+
+
 
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
-
-
-
 
 
     
