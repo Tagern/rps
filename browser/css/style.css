@@ -141,7 +141,7 @@ footer {
   background-color: black;
 
 }
-.weapon-selector-header h1{
+#weapon-selector h1{
   margin: 0 auto;
   background: black;
   margin-top: -22px;
@@ -149,6 +149,12 @@ footer {
   max-width: 300px;
   font-size: 1rem;
 }
+
+#weapon-selector ul li{
+  display: inline-block;
+}
+
+
 #weapon-selector img {
    cursor: url(../images/pointer.png), auto;
 }
