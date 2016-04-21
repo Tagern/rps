@@ -95,9 +95,9 @@ function countDown(){
     return new Promise(function(resolve, reject) {
 
         var iterator = function*(){ // Generator iterator
-            yield "Ready?";
-            yield "Set!";
-            yield "BATTLE!";
+            yield "bow";
+            yield "grimace";
+            yield "fight!";
         }();
 
         function iterate(){
