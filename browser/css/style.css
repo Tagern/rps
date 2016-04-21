@@ -121,7 +121,10 @@ footer {
   /*background-color: whitesmoke;*/
   padding: 10px 0;
   /*box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);*/
-  margin-bottom: 40px;
+  padding-bottom: 40px;
+  z-index: 5000;
+  background-color: black;
+
 }
 .weapon-selector-header h1{
   margin: 0 auto;
