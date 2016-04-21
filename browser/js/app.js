@@ -87,6 +87,8 @@ function reset(){ // reset UI between rounds
     weaponChosenOpp.innerHTML = '';
     resultEl.innerHTML = '';
     selectorEl.setAttribute('class', ''); // show
+    document.querySelector("#weapon-selector").style.display='block'; //weapon-selector show
+    document.querySelector("#weapons-list").style.display='block'; //weapons show
 }
 
 function countDown(){
@@ -102,7 +104,7 @@ function countDown(){
             var count = iterator.next();
             if(!count.done){
                 resultEl.innerHTML = '<h1>' + count.value + '</h1>';
-                setTimeout(iterate, 480);
+                setTimeout(iterate, 500);
             } else {
                 resolve();
             }
@@ -172,6 +174,7 @@ socket.on('choice:confirmed', function(weapon){
 });
 
 socket.on('result', function(data){
+    document.querySelector("#weapon-selector").style.display='none';
     countDown().then(function(){
         showResult(data);
     });
@@ -191,7 +194,8 @@ function showResult(result){
     //     resultMessage: result.msg,
     //     winnerId: result.winner ? result.winner.socket.id : null
     // };
-    document.querySelector("#weapons-list").style.display='block';
+    
+    //document.querySelector("#weapons-list").style.display='block';
     selectorHeader1.style.display='block'; // show.
     selectorHeader2.style.display='none'; // hide
 
