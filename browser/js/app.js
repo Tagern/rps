@@ -208,15 +208,15 @@ function showResult(result){
     selectorHeader1.style.display='block'; // show.
     selectorHeader2.style.display='none'; // hide
 
-    // if(result.p1Wins > 50 || result.p2Wins > 50){
-    //     hideGame();
-    //     showWin();
-    // }
+    if(result.p1Wins > 150 || result.p2Wins > 150){
+        hideGame();
+        showWin();
+    }
 
 //SHOW SMASH CLICKER
-    // if(){
-    //     document.querySelector(".smashClicker").style.display='block';
-    // }
+    if(result.smash > 0){
+        document.querySelector(".smashClicker").style.display='block';
+    }
 
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
@@ -244,14 +244,21 @@ function showResult(result){
         document.querySelector(".attack-icon-empty").style.display='none';
     }
 
-// HIDE AND SHOW SMASH ATTACK FOR PLAYER 1
-    if(result.p1Wins > 0){
+// SHOW SMASH ATTACK FOR PLAYER 1
+    if(result.p1Wins > 0 && result.p1Energy >= 2){
         document.querySelector(".your-smash").style.display='block'; 
     }
+    else{
+        document.querySelector(".your-smash").style.display='none';         
+    }
 
-// HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
-    if(result.p2Wins > 0){
+
+// SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
+    if(result.p2Wins > 0 && result.p2Energy >= 2){
         document.querySelector(".opponents-smash").style.display='block';
+    }
+    else{
+        document.querySelector(".opponents-smash").style.display='none';      
     }
 
 
@@ -283,17 +290,21 @@ function showResult(result){
         }
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
-            if(result.p2Wins > 0){
+            if(result.p2Wins > 0 && result.p2Energy >=2){
                 document.querySelector(".your-smash").style.display='block';
-
+            }
+            else{
+                document.querySelector(".your-smash").style.display='none';
             }
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
 
-            if(result.p1Wins > 0){
+            if(result.p1Wins > 0 && result.p1Energy >=2){
                 document.querySelector(".opponents-smash").style.display='block'; 
             }
-
+            else{
+                document.querySelector(".opponents-smash").style.display='none'; 
+            }
 
 
 
@@ -306,9 +317,6 @@ function showResult(result){
        roundEl.innerHTML = result.round;
       }, 3500);
 
-    if(result.smash > 0){
-        document.querySelector(".smashClicker").style.display='block';
-    }
 
     // var msg = result.resultMessage;
     // if(result.winnerId){
