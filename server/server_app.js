@@ -476,7 +476,7 @@ function resolveDuel(session) {
         // wait and emit reset
         setTimeout(function() {
             reset(session);
-        }, 5500)
+        }, 4500)
 
     }
 }
