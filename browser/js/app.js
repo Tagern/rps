@@ -90,9 +90,8 @@ function countDown(){
     return new Promise(function(resolve, reject) {
 
         var iterator = function*(){ // Generator iterator
-            yield "1";
-            yield "2";
-            yield "3";
+            yield "Ready?";
+            yield "Set!";
             yield "BATTLE!";
         }();
 
@@ -100,7 +99,7 @@ function countDown(){
             var count = iterator.next();
             if(!count.done){
                 resultEl.innerHTML = '<h1>' + count.value + '</h1>';
-                setTimeout(iterate, 500);
+                setTimeout(iterate, 450);
             } else {
                 resolve();
             }

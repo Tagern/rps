@@ -182,10 +182,26 @@ footer {
   width: 50%;
 }
 
+.your-energy {
+
+}
+
+.your-energy h2 {
+  float: left;
+}
+
+.opponents-energy {
+  
+}
+
+.opponents-energy h2 {
+  float: right;
+}
 
 .rounds {
   text-align: center;
-  padding: 10px 20px;
+  padding: 14px 20px;
+  border-bottom: solid white 1px;
   /*color: dimgrey;*/
 }
 
@@ -194,7 +210,8 @@ footer {
 
 }
 .your-score h1 {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
+  float: left;
 }
 
 .opponents-score {
@@ -202,14 +219,18 @@ footer {
 }
 
 .opponents-score h1 {
-  font-size: 1.5rem;
+  font-size: 2.6rem;
+  float: right;
 }
 
+.name-div {
+  
+}
 .your-name {
-
 }
 
 .your-name h1 {
+  float: left;
   color: #3399FF;
   font-size: 1.3rem;
 }
@@ -220,13 +241,24 @@ footer {
 .opponents-name h1 {
    color: #FF3333; /*red*/
    font-size: 1.3rem;
+   float: right;
 }
 
-.you {
+.your-weapon {
   
 }
 
-.opponent {
+.your-weapon p{
+  float: left;
+  
+}
+
+.opponents-weapon {
+  
+}
+
+.opponents-weapon p {
+  float: right;
   
 }
 
@@ -262,7 +294,11 @@ footer {
 
 .attack-icon-empty{
   -webkit-filter: invert(100%);
-  display:none;
+  display: none;
+}
+
+#attack-empty {
+  display: none;
 }
 
 .hide {
