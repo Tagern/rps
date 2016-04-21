@@ -64,6 +64,14 @@ footer {
 .roundContainer {
   font-size: 80%;
 }
+
+.container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+
 #front {
   display: flex;
   flex-direction: column;
@@ -89,6 +97,8 @@ footer {
 
 
 
+
+
 #game {
   display: flex;
 }
@@ -100,6 +110,11 @@ footer {
 #game div h1 {
   font-size: 1.6rem;
 }
+
+
+
+
+
 #weaponOpponent img {
   transform: scaleX(-1);
 }
@@ -142,6 +157,7 @@ footer {
 }
 .score {
   display: flex;
+
   /*background-color: whitesmoke;*/
 }
 .score div {
@@ -167,13 +183,49 @@ footer {
   /*color: dimgrey;*/
 }
 
+
+.your-score {
+
+}
+.your-score h1 {
+  font-size: 1.5rem;
+}
+
+.opponents-score {
+
+}
+
+.opponents-score h1 {
+  font-size: 1.5rem;
+}
+
 .your-name {
 
 }
 
-.opponents-name  {
-
+.your-name h1 {
+  color: #3399FF;
+  font-size: 1.3rem;
 }
+
+.opponents-name  {
+ 
+}
+.opponents-name h1 {
+   color: #FF3333; /*red*/
+   font-size: 1.3rem;
+}
+
+.you {
+  
+}
+
+.opponent {
+  
+}
+
+
+
 
 
 
@@ -191,13 +243,7 @@ footer {
   color: #3399FF;
 }
 
-.you {
-   color: #3399FF;
-}
 
-.opponent {
-  color: #FF3333; /*red*/
-}
 
 .purple {
   color: #FF00FF; /*purple */
