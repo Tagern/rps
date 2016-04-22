@@ -203,7 +203,7 @@ footer {
 .energy-div div {
   flex: auto;
   text-align: center;
-  width: 50%;
+  /*width: 50%;*/
 }
 
 .your-energy {

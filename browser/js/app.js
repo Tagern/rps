@@ -109,9 +109,9 @@ function countDown(){
     return new Promise(function(resolve, reject) {
 
         var iterator = function*(){ // Generator iterator
-            yield "bow";
-            yield "grimace";
-            yield "fight!";
+            yield "8!";
+            yield "BIT!";
+            yield "BATTLE!";
         }();
 
         function iterate(){
@@ -228,8 +228,8 @@ function showResult(result){
         scoreYouEl.innerHTML = result.p2Wins+"%";
         scoreOppEl.innerHTML = result.p1Wins+"%";
 
-        opponentsEnergy.innerHTML = result.p2Energy;
-        yourEnergy.innerHTML = result.p1Energy;
+        // opponentsEnergy.innerHTML = result.p2Energy;
+        // yourEnergy.innerHTML = result.p1Energy;
 
             setTimeout(function(){
             resultEl.innerHTML = result.p1Message;
@@ -324,8 +324,8 @@ function showResult(result){
         scoreOppEl.innerHTML = result.p2Wins+"%";
         scoreYouEl.innerHTML = result.p1Wins+"%";
 
-        opponentsEnergy.innerHTML = result.p1Energy;
-        yourEnergy.innerHTML = result.p2Energy;
+        // opponentsEnergy.innerHTML = result.p1Energy;
+        // yourEnergy.innerHTML = result.p2Energy;
 
         setTimeout(function(){
         resultEl.innerHTML = result.p2Message;
