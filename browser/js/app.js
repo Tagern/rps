@@ -109,8 +109,8 @@ function countDown(){
     return new Promise(function(resolve, reject) {
 
         var iterator = function*(){ // Generator iterator
-            yield "8!";
-            yield "BIT!";
+            yield "8";
+            yield "BIT";
             yield "BATTLE!";
         }();
 
@@ -249,6 +249,9 @@ function showResult(result){
         }
         if(energyTest == 2){
             YouenergyBar.value = YouenergyBar.value="40";
+            //try to style the progress bar - so it changes color depending on value...
+
+            //document.querySelector("#energyBar1[value]::-webkit-progress-bar").style.display='none';
         }
         if(energyTest == 3){
             YouenergyBar.value = YouenergyBar.value="60";

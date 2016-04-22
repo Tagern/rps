@@ -214,6 +214,7 @@ footer {
   float: left;
 }
 
+
 .opponents-energy {
   
 }
@@ -227,23 +228,34 @@ footer {
 }
 .opponents-bar {
     float: right;
+    -webkit-transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 
 progress {
+  -webkit-appearance: none;
+  appearance: none;
  height: 20px;
  width: 250px;
-  background-color: yellow;
 }
 progress[value] {
    position: relative;
    /* Reset the default appearance */
   -webkit-appearance: none;
    appearance: none;
-
   width: 250px;
   height: 20px;
-  background-color: red;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: #555;
+}
+progress[value]::-webkit-progress-value {
+  background-color: #00ff00; /*green */
 }
 
 
