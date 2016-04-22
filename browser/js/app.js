@@ -21,8 +21,8 @@ var scoreOppEl = document.querySelector('#scoreOpponent');
 var yourEnergy = document.querySelector('#energyYou');
 var opponentsEnergy = document.querySelector('#energyOpponent');
 
-var p1energyBar = document.querySelector("#energyBar1");
-var p2energyBar = document.querySelector("#energyBar2");
+var YouenergyBar = document.querySelector("#energyBar1");
+var OppenergyBar = document.querySelector("#energyBar2");
 
 var roundEl = document.querySelector('#round');
 
@@ -85,6 +85,9 @@ function getImage(weapon) {
             break;
         case "focus":
             el = '<img src="images/recharge-icon.png" >';
+            break;
+        case "smash":
+            el = '<img src="images/smash-icon.png" >';
             break;
         default:
             el = '<img style="transform: scaleX(1);" src="images/question-mark.png" >';
@@ -234,30 +237,49 @@ function showResult(result){
             }, 1000);
 
         var energyTest = result.p1Energy;
+        var energyTest2 = result.p2Energy;
 
-        // PLAYER 1 NRG BAR UPDATER
-    //function nrgBar() {
 
+// PLAYER 1 YOUR NRG BAR UPDATER
         if(energyTest == 0){
-            p1energyBar.value = p1energyBar.value="0";
+            YouenergyBar.value = YouenergyBar.value="0";
         }
         if(energyTest == 1){
-            p1energyBar.value = p1energyBar.value="20";
+            YouenergyBar.value = YouenergyBar.value="20";
         }
         if(energyTest == 2){
-            p1energyBar.value = p1energyBar.value="40";
+            YouenergyBar.value = YouenergyBar.value="40";
         }
         if(energyTest == 3){
-            p1energyBar.value = p1energyBar.value="60";
+            YouenergyBar.value = YouenergyBar.value="60";
         }
         if(energyTest == 4){
-            p1energyBar.value = p1energyBar.value="80";
+            YouenergyBar.value = YouenergyBar.value="80";
         }
         if(energyTest == 5){
-            p1energyBar.value = p1energyBar.value="100";
+            YouenergyBar.value = YouenergyBar.value="100";
         }
 
-    //}
+// PLAYER 1 OPPONENTS NRG BAR UPDATER
+        if(energyTest2 == 0){
+            OppenergyBar.value = OppenergyBar.value="0";
+        }
+        if(energyTest2 == 1){
+            OppenergyBar.value = OppenergyBar.value="20";
+        }
+        if(energyTest2 == 2){
+            OppenergyBar.value = OppenergyBar.value="40";
+        }
+        if(energyTest2 == 3){
+            OppenergyBar.value = OppenergyBar.value="60";
+        }
+        if(energyTest2 == 4){
+            OppenergyBar.value = OppenergyBar.value="80";
+        }
+        if(energyTest2 == 5){
+            OppenergyBar.value = OppenergyBar.value="100";
+        }
+
 
 // HIDE AND SHOW ATTACK ICON FOR PLAYER 1
     if(energyTest == 0){
@@ -310,6 +332,7 @@ function showResult(result){
 
         }, 1000);
 
+        var energyTest = result.p1Energy;
         var energyTest2 = result.p2Energy;
 
 
@@ -323,28 +346,47 @@ function showResult(result){
             document.querySelector(".attack-icon-empty").style.display='none';
         }
 
-// PLAYER 2 NRG BAR UPDATER
-    //function nrgBar() {
 
+// PLAYER 2 YOUR NRG BAR UPDATER
         if(energyTest2 == 0){
-            p2energyBar.value = p2energyBar.value="0";
+            YouenergyBar.value = YouenergyBar.value="0";
         }
         if(energyTest2 == 1){
-            p2energyBar.value = p2energyBar.value="20";
+            YouenergyBar.value = YouenergyBar.value="20";
         }
         if(energyTest2 == 2){
-            p2energyBar.value = p2energyBar.value="40";
+            YouenergyBar.value = YouenergyBar.value="40";
         }
         if(energyTest2 == 3){
-            p2energyBar.value = p2energyBar.value="60";
+            YouenergyBar.value = YouenergyBar.value="60";
         }
         if(energyTest2 == 4){
-            p2energyBar.value = p2energyBar.value="80";
+            YouenergyBar.value = YouenergyBar.value="80";
         }
         if(energyTest2 == 5){
-            p2energyBar.value = p2energyBar.value="100";
+            YouenergyBar.value = YouenergyBar.value="100";
         }
-    //}
+
+
+// PLAYER 2 OPPONENTS NRG BAR UPDATER
+        if(energyTest == 0){
+            OppenergyBar.value = OppenergyBar.value="0";
+        }
+        if(energyTest == 1){
+            OppenergyBar.value = OppenergyBar.value="20";
+        }
+        if(energyTest == 2){
+            OppenergyBar.value = OppenergyBar.value="40";
+        }
+        if(energyTest == 3){
+            OppenergyBar.value = OppenergyBar.value="60";
+        }
+        if(energyTest == 4){
+            OppenergyBar.value = OppenergyBar.value="80";
+        }
+        if(energyTest == 5){
+            OppenergyBar.value = OppenergyBar.value="100";
+        }
 
 
 

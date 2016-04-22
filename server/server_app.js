@@ -325,7 +325,7 @@ function fight(player1, player2){
             return {attack_hit: player1, p1msg: "You both got hit!", attack_hit_also: player2, p2msg: "You both got hit!"};
         }
         if(weapon2 === "smash"){
-            return {attack_hit: player2, p2msg: "You just got hit by the smash, get ready!", smash_hit: player1, p1msg: "You hit the smash, get ready!"};
+            return {attack_hit: player1, p2msg: "You just got hit by the smash, get ready!", smash_hit: player2, p1msg: "You hit the smash, get ready!"};
         }
     }
     
@@ -356,7 +356,7 @@ function fight(player1, player2){
             return {focus: player1, p1msg: "You both gained focus!", focus_also: player2, p2msg: "You both gained focus!"};
         }
         if(weapon2 === "smash"){
-            return {focus_smash: player2, p2msg: "You just got hit by the smash, get ready!", smash_hit: player1, p1msg: "You hit the smash, get ready!"};
+            return {focus_smash: player1, p2msg: "You just got hit by the smash, get ready!", smash_hit: player2, p1msg: "You hit the smash, get ready!"};
         }
     }
 
