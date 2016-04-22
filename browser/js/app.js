@@ -21,6 +21,9 @@ var scoreOppEl = document.querySelector('#scoreOpponent');
 var yourEnergy = document.querySelector('#energyYou');
 var opponentsEnergy = document.querySelector('#energyOpponent');
 
+var p1energyBar = document.querySelector("#energyBar1");
+var p2energyBar = document.querySelector("#energyBar2");
+
 var roundEl = document.querySelector('#round');
 
 var resultEl = document.querySelector('#result');
@@ -230,10 +233,34 @@ function showResult(result){
 
             }, 1000);
 
-        var eneryTest = result.p1Energy;
+        var energyTest = result.p1Energy;
+
+        // PLAYER 1 NRG BAR UPDATER
+    //function nrgBar() {
+
+        if(energyTest == 0){
+            p1energyBar.value = p1energyBar.value="0";
+        }
+        if(energyTest == 1){
+            p1energyBar.value = p1energyBar.value="20";
+        }
+        if(energyTest == 2){
+            p1energyBar.value = p1energyBar.value="40";
+        }
+        if(energyTest == 3){
+            p1energyBar.value = p1energyBar.value="60";
+        }
+        if(energyTest == 4){
+            p1energyBar.value = p1energyBar.value="80";
+        }
+        if(energyTest == 5){
+            p1energyBar.value = p1energyBar.value="100";
+        }
+
+    //}
 
 // HIDE AND SHOW ATTACK ICON FOR PLAYER 1
-    if(eneryTest == 0){
+    if(energyTest == 0){
         // document.querySelector(".attack-icon").classList.add("hide");
         document.querySelector(".attack-icon").style.visibility='hidden';
         document.querySelector(".attack-icon-empty").style.display='block';
@@ -243,6 +270,13 @@ function showResult(result){
         document.querySelector(".attack-icon").style.visibility='visible';
         document.querySelector(".attack-icon-empty").style.display='none';
     }
+
+
+
+
+
+
+
 
 // SHOW SMASH ATTACK FOR PLAYER 1
     if(result.p1Wins > 0 && result.p1Energy >= 2){
@@ -255,10 +289,10 @@ function showResult(result){
 
 // SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
     if(result.p2Wins > 0 && result.p2Energy >= 2){
-        document.querySelector(".opponents-smash").style.display='block';
+        document.querySelector("#opponents-smash").style.display='block';
     }
     else{
-        document.querySelector(".opponents-smash").style.display='none';      
+        document.querySelector("#opponents-smash").style.display='none';      
     }
 
 
@@ -289,6 +323,36 @@ function showResult(result){
             document.querySelector(".attack-icon-empty").style.display='none';
         }
 
+// PLAYER 2 NRG BAR UPDATER
+    //function nrgBar() {
+
+        if(energyTest2 == 0){
+            p2energyBar.value = p2energyBar.value="0";
+        }
+        if(energyTest2 == 1){
+            p2energyBar.value = p2energyBar.value="20";
+        }
+        if(energyTest2 == 2){
+            p2energyBar.value = p2energyBar.value="40";
+        }
+        if(energyTest2 == 3){
+            p2energyBar.value = p2energyBar.value="60";
+        }
+        if(energyTest2 == 4){
+            p2energyBar.value = p2energyBar.value="80";
+        }
+        if(energyTest2 == 5){
+            p2energyBar.value = p2energyBar.value="100";
+        }
+    //}
+
+
+
+
+
+
+
+
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
             if(result.p2Wins > 0 && result.p2Energy >=2){
                 document.querySelector(".your-smash").style.display='block';
@@ -300,10 +364,10 @@ function showResult(result){
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
 
             if(result.p1Wins > 0 && result.p1Energy >=2){
-                document.querySelector(".opponents-smash").style.display='block'; 
+                document.querySelector("#opponents-smash").style.display='block'; 
             }
             else{
-                document.querySelector(".opponents-smash").style.display='none'; 
+                document.querySelector("#opponents-smash").style.display='none'; 
             }
 
 
@@ -311,6 +375,9 @@ function showResult(result){
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
 
+
+
+    
 
 
     setTimeout(function(){
@@ -361,5 +428,11 @@ function hideWin(){
 function showWin(){
     document.querySelector(".winScreen").style.display='block';
 }
+
+
+
+
+
+
 
 

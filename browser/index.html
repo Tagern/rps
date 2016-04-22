@@ -65,16 +65,30 @@
                     <h1>You</h1>
                 </div>
                 <div class="opponents-name">
-                    <h1>Opponent</h1>
+                <h1>Opponent</h1>
+                    <img id="opponents-smash" src='images/smash-icon.png'>
+                    
                 </div>
             </div>
 
             <div class="energy-div">
                 <div class="your-energy">
                     <h2 id="energyYou" class="purple">2</h2>
+                    <div class="your-bar">
+                        <progress id="energyBar1" value="40" max="100">    
+                        </progress>
+                    </div>
+                    <!-- <br>
+                    <button onclick="nrgBar()">test button</button>  -->
+
+
                 </div>
                 <div class="opponents-energy">
                     <h2 id="energyOpponent" class="purple">2</h2>
+                    <div class="opponents-bar">
+                        <progress id="energyBar2" value="40" max="100">    
+                        </progress>
+                    </div>
                 </div>
             </div>
 
@@ -111,10 +125,7 @@
                     <a id="your-smash" type="button" class="smash-icon"><img src='images/smash-icon.png'></a>
                     <p> SMASH </p>
                 </div>
-                <div class="opponents-smash">
-                    <a id="opponents-smash" type="button" class="smash-icon"><img src='images/smash-icon.png'></a>
-                    <p> SMASH </p>
-                </div>
+                
                 <ul id="weapons-list">
                     <li>
                         <a id="attack" type="button" class="attack-icon"><img src='images/attack-icon.png'></a>
