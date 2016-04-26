@@ -326,6 +326,10 @@ function showResult(result){
 if (result.p1Wins && result.p1Smash > 0){
     document.querySelector(".clicker-container").style.display='block';
     document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
+<<<<<<< HEAD
+=======
+
+>>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
 
 }
 
@@ -352,16 +356,22 @@ document.querySelector('.player1-clicker').onclick = function() {
 
 function p1smashCountDown(){
         var iterator2 = function*(){ // Generator iterator
-            yield "POO";
-            yield "YOUR";
-            yield "PANTS!";
+            yield "READY";
+            yield "SET";
+            yield "BUTTON BASH!";
         }();
 
         function iterate2(){
             var count2 = iterator2.next();
             if(!count2.done){
+<<<<<<< HEAD
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count2.value + '</h1>';
                 setTimeout(iterate2, 500);
+=======
+                document.querySelector('.clicker-message').innerHTML = '<h2>' + count2.value + '</h2>';
+                console.log("ITERATE");
+                setTimeout(iterate2, 600);
+>>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
             }else{       
                 showp1clicker();
                 p1ClickTimer();
@@ -389,7 +399,12 @@ function p1ClickTimer(){
         function iterate4(){
             var count4 = iterator4.next();
             if(!count4.done){
+<<<<<<< HEAD
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count4.value + '</h1>';
+=======
+                document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count4.value + '</h2>';
+                console.log("ITERATE");
+>>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
                 setTimeout(iterate4, 500);
             }else{       
                 p1ClickerResults();
@@ -547,19 +562,20 @@ document.querySelector('.player2-clicker').onclick = function() {
 
 function p2smashCountDown(){
         var iterator3 = function*(){ // Generator iterator
-            yield "SHIT";
-            yield "YOUR";
-            yield "ARSE!";
+            yield "READY";
+            yield "SET";
+            yield "BUTTON BASH!";
         }();
 
         function iterate3(){
             var count3 = iterator3.next();
             if(!count3.done){
-                document.querySelector('.clicker-message').innerHTML = '<h1>' + count3.value + '</h1>';
+                document.querySelector('.clicker-message').innerHTML = '<h2>' + count3.value + '</h2>';
                 console.log("ITERATE");
-                setTimeout(iterate3, 500);
+                setTimeout(iterate3, 600);
             }else{       
                 showp2clicker();
+                p2ClickTimer();
             }
         }
         iterate3();
@@ -571,6 +587,36 @@ function showp2clicker(){
     document.querySelector('.player2-clicker').style.display='block';  
 }
 
+
+function p2ClickTimer(){
+        var iterator5 = function*(){ // Generator iterator
+            yield "5";
+            yield "4";
+            yield "3!";
+            yield "2!";
+            yield "1!";
+            yield "TIME UP!";
+        }();
+
+        function iterate5(){
+            var count5 = iterator5.next();
+            if(!count5.done){
+                document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count5.value + '</h2>';
+                console.log("ITERATE");
+                setTimeout(iterate5, 500);
+            }else{       
+                p2ClickerResults();
+            }
+        }
+        iterate5();
+}
+
+function p2ClickerResults(){
+    document.querySelector('.clicker-results').style.display='block'; 
+    document.querySelector('.clicker-results').innerHTML = "YOU HAVE WON";
+    document.querySelector('.the-clicker').style.display='none'; 
+  
+}
 
 
 
