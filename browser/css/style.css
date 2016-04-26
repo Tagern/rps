@@ -461,12 +461,24 @@ progress[value]::-webkit-progress-value {
   display:none;
 }
 
-.your-clicker{
+.the-clicker .player1-clicker{
   background-color:yellow;
+  width:400px;
+  height:200px;
+  display:none;
 }
 
-.opponents-clicker{
+.the-clicker .player2-clicker{
   background-color:#eaeaea;
+  width:400px;
+  height:200px;
+  display:none;
+}
+
+.player1-clicker{
+}
+
+.player2-clicker{
 }
 
 
