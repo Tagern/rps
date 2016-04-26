@@ -322,11 +322,6 @@ function showResult(result){
 if (result.p1Wins && result.p1Smash > 0){
     document.querySelector(".clicker-container").style.display='block';
     document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
-
-    if()
-}
-else {
-
 }
 
 
