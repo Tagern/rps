@@ -391,7 +391,7 @@ function p1ClickTimer(){
         function iterate4(){
             var count4 = iterator4.next();
             if(!count4.done){
-                document.querySelector('.clicker-message').innerHTML = '<h1>' + count4.value + '</h1>';
+                document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count4.value + '</h2>';
                 console.log("ITERATE");
                 setTimeout(iterate4, 500);
             }else{       
@@ -589,7 +589,7 @@ function p2ClickTimer(){
         function iterate5(){
             var count5 = iterator5.next();
             if(!count5.done){
-                document.querySelector('.clicker-message').innerHTML = '<h2>' + count5.value + '</h2>';
+                document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count5.value + '</h2>';
                 console.log("ITERATE");
                 setTimeout(iterate5, 500);
             }else{       
