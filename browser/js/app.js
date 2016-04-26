@@ -326,7 +326,6 @@ function showResult(result){
 if (result.p1Wins && result.p1Smash > 0){
     document.querySelector(".clicker-container").style.display='block';
     document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
-<<<<<<< HEAD
 
 }
 
@@ -336,8 +335,6 @@ if (result.p2Wins && result.p2Smash > 0){
 }
 else {
 
-=======
->>>>>>> 5c4b822956138545115c2c218bdc34a5f2debe4e
 }
 
 document.querySelector('#show-clicker').onclick = function(){
@@ -364,7 +361,6 @@ function p1smashCountDown(){
             var count2 = iterator2.next();
             if(!count2.done){
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count2.value + '</h1>';
-                console.log("ITERATE");
                 setTimeout(iterate2, 500);
             }else{       
                 showp1clicker();
@@ -394,7 +390,6 @@ function p1ClickTimer(){
             var count4 = iterator4.next();
             if(!count4.done){
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count4.value + '</h1>';
-                console.log("ITERATE");
                 setTimeout(iterate4, 500);
             }else{       
                 p1ClickerResults();
