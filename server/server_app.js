@@ -512,7 +512,8 @@ function resolveDuel(session) {
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
 
-                smash: player1.smash,
+                p1Smash: player1.smash,
+                p2Smash: player2.smash,
 
                 test: result.nrg,
 
@@ -526,11 +527,21 @@ function resolveDuel(session) {
 
         player1.weapon = player2.weapon = null; // reset weapon choices
 
+        if(result.smash_hit && player1.wins){
+            clearTimeout();
+        }
+        else{
+            setTimeout(function() {
+                
+                reset(session);
+            }, 5000)
+        }
+
         // wait and emit reset
-        setTimeout(function() {
+        // setTimeout(function() {
             
-            reset(session);
-        }, 5000)
+        //     reset(session);
+        // }, 5000)
 
     }
 }

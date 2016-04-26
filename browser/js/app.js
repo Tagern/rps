@@ -54,6 +54,9 @@ btnFocus.addEventListener('click', on_Focus);
 var btnFocus = document.querySelector('#your-smash');
 btnFocus.addEventListener('click', on_Smash);
 
+var bothClicker = document.querySelector('#show-clicker');
+btnFocus.addEventListener('click', bothClicker);
+
 function createGame(){
     socket.emit('create');
 }
@@ -72,6 +75,16 @@ function on_Focus() {
 }
 function on_Smash() {
     socket.emit('choice', "smash");
+}
+
+function bothClicker(){
+    
+    if(p1Id){
+       document.querySelector('.your-clicker').style.display='block'; 
+    }
+    else if(p2Id){
+       document.querySelector('.opponents-clicker').style.display='block'; 
+    }
 }
 
 function getImage(weapon) {
@@ -219,10 +232,15 @@ function showResult(result){
         showWin();
     }
 
-//SHOW SMASH CLICKER
-    if(result.smash > 0){
-        document.querySelector(".smashClicker").style.display='block';
-    }
+
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+//                                      YOU                                      //
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
 
     if(result.p1Id === socket.id){ // you
         scoreYouEl.innerHTML = result.p2Wins+"%";
@@ -301,6 +319,21 @@ function showResult(result){
 
 
 
+if (result.p1Wins && result.p1Smash > 0){
+    document.querySelector(".clicker-container").style.display='block';
+    document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
+
+    if()
+}
+else {
+
+}
+
+
+
+
+
+
 
 
 // SHOW SMASH ATTACK FOR PLAYER 1
@@ -319,6 +352,16 @@ function showResult(result){
     else{
         document.querySelector("#opponents-smash").style.display='none';      
     }
+
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
+//                                OPPONENT                                      //
+
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+
 
 
     document.querySelector('#weaponOpponent').innerHTML = getImage(result.p2Weapon);
@@ -392,6 +435,16 @@ function showResult(result){
         }
 
 
+
+
+
+if (result.p1Wins && result.p1Smash > 0){
+    document.querySelector(".clicker-container").style.display='block';
+    document.querySelector(".clicker-message").innerHTML="Their smash hit! Defend yourself!";
+}
+else {
+
+}
 
 
 
