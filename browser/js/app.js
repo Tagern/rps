@@ -51,6 +51,8 @@ btnShield.addEventListener('click', on_Shield);
 var btnFocus = document.querySelector('#focus');
 btnFocus.addEventListener('click', on_Focus);
 
+// THIS USES THE SAME VARIABLE! CHECK TO SEE IF THAT IS CAUSING PROBLEMS!!!
+
 var btnFocus = document.querySelector('#your-smash');
 btnFocus.addEventListener('click', on_Smash);
 
@@ -326,10 +328,6 @@ function showResult(result){
 if (result.p1Wins && result.p1Smash > 0){
     document.querySelector(".clicker-container").style.display='block';
     document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
-<<<<<<< HEAD
-=======
-
->>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
 
 }
 
@@ -364,14 +362,13 @@ function p1smashCountDown(){
         function iterate2(){
             var count2 = iterator2.next();
             if(!count2.done){
-<<<<<<< HEAD
+
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count2.value + '</h1>';
                 setTimeout(iterate2, 500);
-=======
+
                 document.querySelector('.clicker-message').innerHTML = '<h2>' + count2.value + '</h2>';
                 console.log("ITERATE");
                 setTimeout(iterate2, 600);
->>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
             }else{       
                 showp1clicker();
                 p1ClickTimer();
@@ -399,12 +396,11 @@ function p1ClickTimer(){
         function iterate4(){
             var count4 = iterator4.next();
             if(!count4.done){
-<<<<<<< HEAD
+
                 document.querySelector('.clicker-message').innerHTML = '<h1>' + count4.value + '</h1>';
-=======
+
                 document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count4.value + '</h2>';
                 console.log("ITERATE");
->>>>>>> f0e4a625ae200c1f68c919fdba6b9e3a8a7c202f
                 setTimeout(iterate4, 500);
             }else{       
                 p1ClickerResults();
