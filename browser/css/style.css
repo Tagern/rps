@@ -425,6 +425,11 @@ progress[value]::-webkit-progress-value {
   height:100vh;
 }
 
+.winScreen h1 {
+  text-align: center;
+}
+
+
 .loseScreen{
   display:none;
   position:fixed;
@@ -434,7 +439,68 @@ progress[value]::-webkit-progress-value {
   height:100vh;
 }
 
+.loseScreen h1 {
+  text-align: center;
+}
 
+.endscreen-header{
+  height: 20vh;
+
+  text-align: center;
+  width: 100%;
+}
+
+.endscreen-scores {
+  height: 40vh;
+ 
+  width: 100%;
+  text-align: center;
+   display: inline-block;
+}
+
+.your-final-score {
+  width: 33%;
+  float: left;
+  text-align: center;
+  display: inline-block;
+
+}
+
+
+.opponents-final-score {
+  width: 33%;
+  float: left;
+  text-align: center;
+  display: inline-block;
+}
+
+.losers-image {
+   float: left;
+  width: 33%;
+  text-align: center;
+  display: inline-block;
+}
+
+/*.losers-image img {
+  height: 60%;
+}*/
+
+.winners-image {
+   float: left;
+  width: 33%;
+  text-align: center;
+  display: inline-block;
+}
+
+.winners-image img {
+  max-height: 200px;
+}
+
+.endscreen-buttons {
+  height: 30vh;
+ 
+  text-align: center;
+}
 
 .smashClicker{
   margin:0 auto;
@@ -507,5 +573,8 @@ progress[value]::-webkit-progress-value {
   font-weight: normal;
   font-style: normal;
 }
+
+
+
 
 
