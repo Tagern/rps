@@ -19,15 +19,75 @@
     });
 </script>
     <div class="winScreen">
-        <h1>THIS IS THE WIN SCREEN</h1>
-        <button id="different" onclick="goBackToTheHomePage(); winScreenDisable();">Play Again</button>
-        <button id="same">FUCK OFF</button>
+        <div class = "endscreen-header">
+            <h1>WINNER</h1>
+        </div>
+
+        <div class="endscreen-scores">
+            <div class="your-final-score">
+                <h2> You </h2>
+                <div class="your-click-score">
+                    <p>click score here</p>
+                </div>
+                <div class="your-final-percentage">
+                    <p> final % damage here </p>
+                </div>
+            </div>
+            <div class="winners-image">
+                <img src='images/win.png'>
+            </div>
+            <div class="opponents-final-score">
+                <h2> Opponent </h2>
+                <div class="opponents-click-score">
+                    <p>click score here</p>
+                </div>
+                <div class="opponents-final-percentage">
+                    <p> final % damage here </p>
+                </div>
+            </div>
+        </div>
+        <div class="endscreen-buttons">
+            <h2> PLay again? </h2>
+            <button id="different" onclick="goBackToTheHomePage(); winScreenDisable();">YES</button>
+            <button id="same">NO</button>
+        </div>
     </div>
+
     <div class="loseScreen">
-        <h1>THIS IS THE LOSE SCREEN</h1>
-        <button id="different" onclick="goBackToTheHomePage(); loseScreenDisable();">Play Again</button>
-        <button id="same">FUCK OFF</button>
+        <div class = "endscreen-header">
+        <h1>LOSER</h1>
+        </div>
+
+        <div class="endscreen-scores">
+            <div class="your-final-score">
+                <h2> You </h2>
+                <div class="your-click-score">
+                    <p>click score here</p>
+                </div>
+                <div class="your-final-percentage">
+                    <p> final % damage here </p>
+                </div>
+            </div>
+            <div class="losers-image">
+                <img src='images/lose.png'>
+            </div>
+            <div class="opponents-final-score">
+                <h2> Opponent </h2>
+                <div class="opponents-click-score">
+                    <p>click score here</p>
+                </div>
+                <div class="opponents-final-percentage">
+                    <p> final % damage here </p>
+                </div>
+            </div>
+        </div>
+        <div class="endscreen-buttons">
+            <h2> PLay again? </h2>
+            <button id="different" onclick="goBackToTheHomePage(); loseScreenDisable();">yes</button>
+            <button id="same">no</button>
+        </div>
     </div>
+
     <div class="container">
         
         <div id="frontView">
