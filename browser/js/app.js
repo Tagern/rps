@@ -223,7 +223,6 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
-<<<<<<< HEAD
     data = JSON.parse(data);
     if(data.winner == true && data.smashCount > 0) {
         //PLAYER WINS AND WAS SMASHER
@@ -233,27 +232,24 @@ socket.on('confirmation', function(data) {
         //PLAYER WINS AND WAS SMASHEE
         console.log("YOU BEAT THEM IN THE CLICKER!");
         reset();
+
+        document.querySelector(".clicker-container").style.display='none';
+        document.querySelector('#show-clicker').style.display='none'; 
+        
     } else if(data.winner == false && data.smashCount > 0) {
         //PLAYER LOSES AND SMASHER
         console.log("THEY BEAT YOU IN THE CLICKER!");
         reset();
 
+        document.querySelector(".clicker-container").style.display='none';
+        document.querySelector('#show-clicker').style.display='none'; 
+
     } else if(data.winner == false && data.smashCount < 1) {
         //PLAYER LOSES AND SMASHEE
         document.querySelector(".loseScreen").style.display='block';
         console.log("you lose");
-    } else if (data.draw == true) {
-        //PLAYERS DREW
-=======
-    if(data == 'winner') {
-    document.querySelector(".winScreen").style.display='block';
-    
-    } else if (data == 'loser') {
-    document.querySelector(".loseScreen").style.display='block';
-
     } else if (data == 'draw') {
->>>>>>> ea4c8fe0a8318cb085ea660daf3014d30f058566
-        alert("cancels everything - back to game, no damage")
+        alert("cancels everything - back to game, no damage");
     }
 });
 
