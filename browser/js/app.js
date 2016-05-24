@@ -172,7 +172,7 @@ socket.on('message', function(msg){
 });
 
 socket.on('restart', function(){ // opponent disconnected, return to start screen
-    alert("Opponent fled.");
+    alert("Wanna start another game?");
     gameView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
     scoreYouEl.innerHTML = 0;
@@ -223,16 +223,27 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
-    if(data == 'winner') {
-    
-    document.querySelector(".winScreen").style.display='block';
-    
-    } else if (data == 'loser') {
-    document.querySelector(".loseScreen").style.display='block';
+    data = JSON.parse(data);
+    if(data.winner == true && data.smashCount > 0) {
+        //PLAYER WINS AND WAS SMASHER
+        document.querySelector(".winScreen").style.display='block';
+        console.log("you win!");
+    } else if (data.winner == true && data.smashCount < 1) {
+        //PLAYER WINS AND WAS SMASHEE
+        console.log("YOU BEAT THEM IN THE CLICKER!");
+        reset();
+    } else if(data.winner == false && data.smashCount > 0) {
+        //PLAYER LOSES AND SMASHER
+        console.log("THEY BEAT YOU IN THE CLICKER!");
+        reset();
 
-    } else if (data == 'draw') {
+    } else if(data.winner == false && data.smashCount < 1) {
+        //PLAYER LOSES AND SMASHEE
+        document.querySelector(".loseScreen").style.display='block';
+        console.log("you lose");
+    } else if (data.draw == true) {
+        //PLAYERS DREW
         alert("cancels everything - back to game, no damage")
-
     }
 });
 

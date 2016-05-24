@@ -152,18 +152,28 @@ io.on('connection', function (socket) {
         console.log(p1count);
         console.log(p2count);
         if(p1count !== null && p2count !== null) {
+            var smashResult = {};
             if(p1count == p2count) {
                 console.log('draw');
-                player1.socket.emit('confirmation', 'draw');                  
-                player2.socket.emit('confirmation', 'draw');                 
+                smashResult.draw = true;
+                player1.socket.emit('confirmation', JSON.stringify(smashResult));                  
+                player2.socket.emit('confirmation', smashResult);                 
             } else if(Math.max(p1count, p2count) == p1count) {
                 console.log('player 1 wins');
-                player1.socket.emit('confirmation', 'winner');                  
-                player2.socket.emit('confirmation', 'loser');               
+                smashResult.winner = true;
+                smashResult.smashCount = player1.smash;
+                player1.socket.emit('confirmation', JSON.stringify(smashResult));  
+                smashResult.winner = false;  
+                smashResult.smashCount = player2.smash;      
+                player2.socket.emit('confirmation', JSON.stringify(smashResult));               
             } else if(Math.max(p1count, p2count) == p2count) {
                 console.log('player 2 wins');
-                player1.socket.emit('confirmation', 'loser');                    
-                player2.socket.emit('confirmation', 'winner');   
+                smashResult.winner = false;
+                smashResult.smashCount = player1.smash;
+                player1.socket.emit('confirmation', JSON.stringify(smashResult));   
+                smashResult.winner = true;  
+                smashResult.smashCount = player2.smash;                   
+                player2.socket.emit('confirmation', JSON.stringify(smashResult));   
             }
             p1count = null;
             p2count = null;
