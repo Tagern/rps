@@ -79,6 +79,9 @@ function onListening() {
  */
 var io = require('socket.io')(server);
 
+var p1count = null;
+var p2count = null;
+
 io.on('connection', function (socket) {
     // socket represents a client / individual user
     //console.log(socket.id, "connected");
@@ -135,8 +138,36 @@ io.on('connection', function (socket) {
         otherPlayer.socket.emit('choice:confirmed');
     });
 
+
     socket.on('confirmation', function(data) {
-        socket.broadcast.emit('confirmation', data);
+        var player1 = session.getPlayers()[0],
+            player2 = session.getPlayers()[1];
+        if(socket.id == player1.socket.id) {
+            p1count = data;
+            console.log("player1 : " + player1.socket.id);
+        } else if(socket.id == player2.socket.id) {
+            p2count = data;
+            console.log("player2 : " + player2.socket.id);
+        }
+        console.log(p1count);
+        console.log(p2count);
+        if(p1count !== null && p2count !== null) {
+            if(p1count == p2count) {
+                console.log('draw');
+                player1.socket.emit('confirmation', 'draw');                  
+                player2.socket.emit('confirmation', 'draw');                 
+            } else if(Math.max(p1count, p2count) == p1count) {
+                console.log('player 1 wins');
+                player1.socket.emit('confirmation', 'winner');                  
+                player2.socket.emit('confirmation', 'loser');               
+            } else if(Math.max(p1count, p2count) == p2count) {
+                console.log('player 2 wins');
+                player1.socket.emit('confirmation', 'loser');                    
+                player2.socket.emit('confirmation', 'winner');   
+            }
+            p1count = null;
+            p2count = null;
+        }
     });
 
     socket.on('restart:done', function() {

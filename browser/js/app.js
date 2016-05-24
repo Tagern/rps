@@ -78,6 +78,11 @@ function on_Focus() {
 function on_Smash() {
     socket.emit('choice', "smash");
 }
+function sendClickConfirmation(clickerCount) {
+    socket.emit("confirmation", clickerCount);
+}
+
+
 
 // function bothClicker(){
 //     if(result.p1Id === socket.id){
@@ -145,6 +150,9 @@ function countDown(){
         iterate();
     });
 }
+
+
+
 
 
 socket.on('connect', function(){
@@ -215,7 +223,15 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
-    alert('other player confirmed');
+    if(data == 'winner') {
+        window.location.href = "../winner.html";
+    } else if (data == 'loser') {
+        alert("You are a loser, bitch!")
+
+    } else if (data == 'draw') {
+        alert("cancels everything - back to game, no damage")
+
+    }
 });
 
 function showResult(result){
@@ -342,14 +358,14 @@ else {
 }
 
 document.querySelector('#show-clicker').onclick = function(){
-
+    document.querySelector('#show-clicker').style.display='none'; 
     p1smashCountDown();
       
 }
 
-var p1count = 1;
+var p1count = 0;
 document.querySelector('.player1-clicker').onclick = function() {
-   alert("button was clicked " + (p1count++) + " times");
+   p1count++;
 };
 
 
@@ -364,12 +380,7 @@ function p1smashCountDown(){
         function iterate2(){
             var count2 = iterator2.next();
             if(!count2.done){
-
-                document.querySelector('.clicker-message').innerHTML = '<h1>' + count2.value + '</h1>';
-                setTimeout(iterate2, 500);
-
                 document.querySelector('.clicker-message').innerHTML = '<h2>' + count2.value + '</h2>';
-                console.log("ITERATE");
                 setTimeout(iterate2, 600);
             }else{       
                 showp1clicker();
@@ -384,11 +395,8 @@ function showp1clicker(){
     document.querySelector('.the-clicker').style.display='block'; 
     document.querySelector('.player1-clicker').style.display='block';  
 }
-var p1clickerConfirm = 0;
-var p2clickerConfirm = 0;
 
 function p1ClickTimer(){
-
 
         var iterator4 = function*(){ // Generator iterator
             yield "5";
@@ -408,42 +416,22 @@ function p1ClickTimer(){
                 document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count4.value + '</h2>';
                 console.log("ITERATE");
                 setTimeout(iterate4, 500);
-            }else{   
-                confirmClick();
-                p1clickerTest();
-
+            } else{   
                 p1ClickerResults();
-
+             
             }
         }
 
         iterate4();
-
-        function p1clickerTest(){
-            if(p1clickerConfirm == 1 && p2clickerConfirm == 1){
-                alert("p1 YES");
-            }
-            else{
-                alert(p2clickerConfirm);
-                alert("still waiting");
-            }
-        }
 }
 
-function confirmClick(){
-    if(result.p1clickConfirm > 0){
-        alert("p1 is greater than 0")
-    }
-}
 
-function sendClickConfirmation() {
-    socket.emit("confirmation", 'true')
-}
 
 function p1ClickerResults(){
     document.querySelector('.clicker-results').style.display='block'; 
     document.querySelector('.clicker-results').innerHTML = "Waiting for opponent";
     document.querySelector('.the-clicker').style.display='none';  
+    sendClickConfirmation(p1count); //SEND CONFIRMATION + AMOUNT OF CLICKS TO OTHER PLAYER
 }
 
 
@@ -574,14 +562,14 @@ document.querySelector('#show-clicker').onclick = function(){
 
 
 document.querySelector('#show-clicker').onclick = function(){
-
+    document.querySelector('#show-clicker').style.display='none'; 
     p2smashCountDown();
       
 }
 
-var p2count = 1;
+var p2count = 0;
 document.querySelector('.player2-clicker').onclick = function() {
-   alert("button was clicked " + (p2count++) + " times");
+    p2count++;
 };
 
 
@@ -592,7 +580,6 @@ function p2smashCountDown(){
             yield "SET";
             yield "BUTTON BASH!";
         }();
-
         function iterate3(){
             var count3 = iterator3.next();
             if(!count3.done){
@@ -606,6 +593,8 @@ function p2smashCountDown(){
         }
         iterate3();
 }
+
+
 
 function showp2clicker(){
     document.querySelector('.clicker-message-container').style.display='none'; 
@@ -632,30 +621,17 @@ function p2ClickTimer(){
                 setTimeout(iterate5, 500);
             }else{       
                 p2ClickerResults();
-
-                p2clickerConfirm = 1;
-                p2clickerTest();
+               
             }
         }
         iterate5();
-
-
-        function p2clickerTest(){
-            if(p2clickerConfirm == 1){
-                alert("YES");
-            }
-            else{
-                alert(p2clickerConfirm);
-            }
-        }
-
 }
 
 function p2ClickerResults(){
     document.querySelector('.clicker-results').style.display='block'; 
     document.querySelector('.clicker-results').innerHTML = "Waiting for opponent";
     document.querySelector('.the-clicker').style.display='none'; 
-  
+    sendClickConfirmation(p2count); //SEND CONFIRMATION + AMOUNT OF CLICKS TO OTHER PLAYER
 }
 
 
@@ -735,8 +711,6 @@ function hideWin(){
 function showWin(){
     document.querySelector(".winScreen").style.display='block';
 }
-
-
 
 
 
