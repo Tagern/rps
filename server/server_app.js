@@ -135,6 +135,10 @@ io.on('connection', function (socket) {
         otherPlayer.socket.emit('choice:confirmed');
     });
 
+    socket.on('confirmation', function(data) {
+        socket.broadcast.emit('confirmation', data);
+    });
+
     socket.on('restart:done', function() {
         session = null; // break reference to session object
     });
@@ -247,6 +251,8 @@ var sessionManager = function (id) { // module for managing individual sessions
             wins: 0,
             nrg: 2,
             smash: 0,
+            confirm: 0,
+
             socket: socket
 
         };
@@ -511,6 +517,9 @@ function resolveDuel(session) {
                 // resultMessage: result.msg,
                 p1Message: result.p1msg,
                 p2Message: result.p2msg,
+
+                p1clickConfirm: player1.confirm,
+                p2clickConfirm: player2.confirm,
 
                 p1Smash: player1.smash,
                 p2Smash: player2.smash,

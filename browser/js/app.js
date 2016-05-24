@@ -214,6 +214,10 @@ socket.on('result', function(data){
     });
 });
 
+socket.on('confirmation', function(data) {
+    alert('other player confirmed');
+});
+
 function showResult(result){
     
     // Expected result data format:
@@ -323,8 +327,6 @@ function showResult(result){
 
 
 
-
-
 if (result.p1Wins && result.p1Smash > 0){
     document.querySelector(".clicker-container").style.display='block';
     document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
@@ -382,8 +384,12 @@ function showp1clicker(){
     document.querySelector('.the-clicker').style.display='block'; 
     document.querySelector('.player1-clicker').style.display='block';  
 }
+var p1clickerConfirm = 0;
+var p2clickerConfirm = 0;
 
 function p1ClickTimer(){
+
+
         var iterator4 = function*(){ // Generator iterator
             yield "5";
             yield "4";
@@ -402,18 +408,42 @@ function p1ClickTimer(){
                 document.querySelector('.clicker-ticker').innerHTML = '<h2>' + count4.value + '</h2>';
                 console.log("ITERATE");
                 setTimeout(iterate4, 500);
-            }else{       
+            }else{   
+                confirmClick();
+                p1clickerTest();
+
                 p1ClickerResults();
+
             }
         }
+
         iterate4();
+
+        function p1clickerTest(){
+            if(p1clickerConfirm == 1 && p2clickerConfirm == 1){
+                alert("p1 YES");
+            }
+            else{
+                alert(p2clickerConfirm);
+                alert("still waiting");
+            }
+        }
+}
+
+function confirmClick(){
+    if(result.p1clickConfirm > 0){
+        alert("p1 is greater than 0")
+    }
+}
+
+function sendClickConfirmation() {
+    socket.emit("confirmation", 'true')
 }
 
 function p1ClickerResults(){
     document.querySelector('.clicker-results').style.display='block'; 
-    document.querySelector('.clicker-results').innerHTML = "YOU HAVE WON";
-    document.querySelector('.the-clicker').style.display='none'; 
-  
+    document.querySelector('.clicker-results').innerHTML = "Waiting for opponent";
+    document.querySelector('.the-clicker').style.display='none';  
 }
 
 
@@ -602,14 +632,26 @@ function p2ClickTimer(){
                 setTimeout(iterate5, 500);
             }else{       
                 p2ClickerResults();
+
+                p2clickerConfirm = 1;
+                p2clickerTest();
             }
         }
         iterate5();
+
+        function p2clickerTest(){
+            if(p2clickerConfirm == 1){
+                alert("YES");
+            }
+            else{
+                alert(p2clickerConfirm);
+            }
+        }
 }
 
 function p2ClickerResults(){
     document.querySelector('.clicker-results').style.display='block'; 
-    document.querySelector('.clicker-results').innerHTML = "YOU HAVE WON";
+    document.querySelector('.clicker-results').innerHTML = "Waiting for opponent";
     document.querySelector('.the-clicker').style.display='none'; 
   
 }
