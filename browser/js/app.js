@@ -639,6 +639,7 @@ function p2ClickTimer(){
         }
         iterate5();
 
+
         function p2clickerTest(){
             if(p2clickerConfirm == 1){
                 alert("YES");
@@ -647,6 +648,7 @@ function p2ClickTimer(){
                 alert(p2clickerConfirm);
             }
         }
+
 }
 
 function p2ClickerResults(){
