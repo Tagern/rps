@@ -418,7 +418,23 @@ progress[value]::-webkit-progress-value {
 
 .winScreen{
   display:none;
+  position:fixed;
+  z-index: 999;
+  background-color:green;
+  width:100%;
+  height:100vh;
 }
+
+.loseScreen{
+  display:none;
+  position:fixed;
+  z-index: 999;
+  background-color:red;
+  width:100%;
+  height:100vh;
+}
+
+
 
 .smashClicker{
   margin:0 auto;

@@ -224,9 +224,11 @@ socket.on('result', function(data){
 
 socket.on('confirmation', function(data) {
     if(data == 'winner') {
-        window.location.href = "../winner.html";
+    
+    document.querySelector(".winScreen").style.display='block';
+    
     } else if (data == 'loser') {
-        alert("You are a loser, bitch!")
+    document.querySelector(".loseScreen").style.display='block';
 
     } else if (data == 'draw') {
         alert("cancels everything - back to game, no damage")
@@ -694,7 +696,7 @@ function getUrlVars() {
     return vars;
 }
 
-// OUR JAVASCRIPT
+
 
 function hideGame(){
     document.querySelector(".container").style.display='none';
@@ -712,6 +714,17 @@ function showWin(){
     document.querySelector(".winScreen").style.display='block';
 }
 
+function winScreenDisable(){
+    document.querySelector(".winScreen").style.display='none';
+}
+
+function loseScreenDisable(){
+    document.querySelector(".loseScreen").style.display='none';
+}
+
+function goBackToTheHomePage(){
+    window.location.href = "../index.html";
+}
 
 
 

@@ -20,10 +20,14 @@
 </script>
     <div class="winScreen">
         <h1>THIS IS THE WIN SCREEN</h1>
-        <button id="different" onclick="reset()">Play Again</button>
+        <button id="different" onclick="goBackToTheHomePage(); winScreenDisable();">Play Again</button>
         <button id="same">FUCK OFF</button>
     </div>
-
+    <div class="loseScreen">
+        <h1>THIS IS THE LOSE SCREEN</h1>
+        <button id="different" onclick="goBackToTheHomePage(); loseScreenDisable();">Play Again</button>
+        <button id="same">FUCK OFF</button>
+    </div>
     <div class="container">
         
         <div id="frontView">
