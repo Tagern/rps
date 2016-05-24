@@ -224,9 +224,13 @@ socket.on('result', function(data){
 
 socket.on('confirmation', function(data) {
     if(data == 'winner') {
+<<<<<<< Updated upstream
     
     document.querySelector(".winScreen").style.display='block';
     
+=======
+        
+>>>>>>> Stashed changes
     } else if (data == 'loser') {
     document.querySelector(".loseScreen").style.display='block';
 
