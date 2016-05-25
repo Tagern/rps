@@ -697,6 +697,48 @@ progress[value]::-webkit-progress-value {
 }
 
 
+.how-to-play-wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
 
+.how-to-play-header {
+  padding: 20px 0;
+}
+.how-to-play-header h1{
+  color: #00ff00;
+}
+.how-to-play-header p{
+  line-height: 34px;
+}
 
+.how-to-play-main {
+margin-bottom: 80px;
+}
+
+.how-to-play-main p {
+  line-height: 34px;
+}
+
+.how-to-play-main h1 {
+  color: #00ff00;
+  margin-top: 40px;
+}
+
+.how-to-play-main h2 {
+ color: #FF00FF;
+ margin-top: 45px;
+}
+
+.back-to-game {
+  margin-top: 20px;
+  margin-left: 20px;
+  text-align: left;
+  color: white;
+}
+
+.back-to-game a {
+  color: white;
+
+}
 
