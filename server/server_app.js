@@ -177,6 +177,9 @@ io.on('connection', function (socket) {
             }
             p1count = null;
             p2count = null;
+
+            player1.smash = 0;
+            player2.smash = 0;
         }
     });
 
@@ -600,5 +603,6 @@ function resolveDuel(session) {
 function reset(session){ // tell connected clients of session to reset UI for a new round
     session.getPlayers().forEach(function(element){
         element.socket.emit('reset');
+
     });
 }
