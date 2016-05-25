@@ -245,6 +245,10 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
+<<<<<<< HEAD
+=======
+
+>>>>>>> eb697d9178a012b7bbbfbbff1c60862ac1c4e18b
     data = JSON.parse(data);
     if(data.winner == true && data.smashCount > 0) {
         //PLAYER WINS AND WAS SMASHER
@@ -289,6 +293,7 @@ socket.on('confirmation', function(data) {
         //PLAYER LOSES AND SMASHEE
         document.querySelector(".loseScreen").style.display='block';
         console.log("you lose");
+<<<<<<< HEAD
 
     } else if (data == 'draw') {
         alert("cancels everything - back to game, no damage");
@@ -297,6 +302,14 @@ socket.on('confirmation', function(data) {
         
         reset();
     }
+=======
+
+    } else if (data == 'draw') {
+        alert("cancels everything - back to game, no damage");
+    }
+
+
+>>>>>>> eb697d9178a012b7bbbfbbff1c60862ac1c4e18b
 });
 
 function showResult(result){
