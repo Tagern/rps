@@ -245,10 +245,7 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
-<<<<<<< HEAD
-=======
 
->>>>>>> eb697d9178a012b7bbbfbbff1c60862ac1c4e18b
     data = JSON.parse(data);
     if(data.winner == true && data.smashCount > 0) {
         //PLAYER WINS AND WAS SMASHER
@@ -293,7 +290,6 @@ socket.on('confirmation', function(data) {
         //PLAYER LOSES AND SMASHEE
         document.querySelector(".loseScreen").style.display='block';
         console.log("you lose");
-<<<<<<< HEAD
 
     } else if (data == 'draw') {
         alert("cancels everything - back to game, no damage");
@@ -302,15 +298,9 @@ socket.on('confirmation', function(data) {
         
         reset();
     }
-=======
 
-    } else if (data == 'draw') {
-        alert("cancels everything - back to game, no damage");
-    }
+} 
 
-
->>>>>>> eb697d9178a012b7bbbfbbff1c60862ac1c4e18b
-});
 
 function showResult(result){
     
@@ -534,7 +524,7 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 1
-    if(result.p1Wins >= 0 && result.p1Energy >= 2){
+    if(result.p1Wins > 75 && result.p1Energy >= 2){
 
         setTimeout(function(){
             document.querySelector(".your-smash").style.display='block'; 
@@ -549,7 +539,7 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
-    if(result.p2Wins > 0 && result.p2Energy >= 2){
+    if(result.p2Wins > 75 && result.p2Energy >= 2){
         document.querySelector("#opponents-smash").style.display='block';
     }
     else{
@@ -769,7 +759,7 @@ function p2ClickerResults(){
 
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
-            if(result.p2Wins > 0 && result.p2Energy >=2){
+            if(result.p2Wins > 75 && result.p2Energy >=2){
                 setTimeout(function(){
                     document.querySelector(".your-smash").style.display='block';
                     smashSound.play();                  
@@ -781,7 +771,7 @@ function p2ClickerResults(){
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
 
-            if(result.p1Wins > 0 && result.p1Energy >=2){
+            if(result.p1Wins > 75 && result.p1Energy >=2){
                 document.querySelector("#opponents-smash").style.display='block';
             }
             else{
