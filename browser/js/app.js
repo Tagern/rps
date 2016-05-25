@@ -56,6 +56,17 @@ btnFocus.addEventListener('click', on_Focus);
 var btnFocus = document.querySelector('#your-smash');
 btnFocus.addEventListener('click', on_Smash);
 
+// AUDIO
+
+var introSound = new Audio('../audio/8_bit_intro_voice.mp3');
+var smashSound = new Audio('../audio/smash_activated.mp3');
+var attackSound = new Audio('../audio/attack.mp3');
+var shieldSound = new Audio('../audio/shield.mp3');
+var focusSound = new Audio('../audio/focus.mp3');
+var smashMoveSound = new Audio('../audio/smash.mp3');
+
+var song = new Audio('../audio/8_bit_battle.mp3');
+
 // var btnBothClicker = document.querySelector('#show-clicker');
 // btnBothClicker.addEventListener('click', bothClicker);
 
@@ -65,18 +76,22 @@ function createGame(){
 
 function on_Attack() {
     socket.emit('choice', "attack");
+    attackSound.play();
 }
 function on_Empty(){
-    alert("Fuck!!!!");
+    alert("You need to focus!");
 }
 function on_Shield() {
     socket.emit('choice', "shield");
+    shieldSound.play();
 }
 function on_Focus() {
     socket.emit('choice', "focus");
+    focusSound.play();
 }
 function on_Smash() {
     socket.emit('choice', "smash");
+    smashMoveSound.play();
 }
 function sendClickConfirmation(clickerCount) {
     socket.emit("confirmation", clickerCount);
@@ -128,6 +143,7 @@ function reset(){ // reset UI between rounds
     
     p1Smash = 0;
     p2Smash = 0;
+
 }
 
 function countDown(){
@@ -203,6 +219,10 @@ socket.on('start', function(){ // both clients are ready, let the game begin
     frontView.setAttribute('class', 'hide'); // hide
     waitView.setAttribute('class', 'hide'); // hide
     gameView.setAttribute('class', ''); // show
+
+    song.play();
+    song.volume = 0.2;
+    song.loop = true;
 });
 
 socket.on('choice:confirmed', function(weapon){
@@ -225,10 +245,6 @@ socket.on('result', function(data){
 });
 
 socket.on('confirmation', function(data) {
-<<<<<<< HEAD
-=======
-
->>>>>>> 02f150059e5ce16bb0d26633474bf67a726ca9db
     data = JSON.parse(data);
     if(data.winner == true && data.smashCount > 0) {
         //PLAYER WINS AND WAS SMASHER
@@ -237,35 +253,50 @@ socket.on('confirmation', function(data) {
     } else if (data.winner == true && data.smashCount < 1) {
         //PLAYER WINS AND WAS SMASHEE
         console.log("YOU BEAT THEM IN THE CLICKER!");
-
-        document.querySelector(".clicker-container").style.display='none'; 
         
-        reset();
+        document.querySelector(".smasher-not-win").style.display='block';
+        document.querySelector(".smasher-not-win").innerHTML="Smash was defended! You were not defeated!";
+        document.querySelector(".clicker-results").style.display='none';
+
+        setTimeout(function(){
+            document.querySelector(".smasher-not-win").style.display='none';
+            document.querySelector(".clicker-container").style.display='none';
+            document.querySelector("#result").style.display='block';
+
+            reset();
+        }, 3000);
 
     } else if(data.winner == false && data.smashCount > 0) {
         //PLAYER LOSES AND SMASHER
         console.log("THEY BEAT YOU IN THE CLICKER!");
 
-        document.querySelector(".clicker-container").style.display='none';
-        
-        reset();
+        document.querySelector(".smasher-not-win").style.display='block';
+        document.querySelector(".smasher-not-win").innerHTML="Too slow! Opponent was not defeated!";
+        document.querySelector(".clicker-results").style.display='none';
+
+
+
+        setTimeout(function(){
+            document.querySelector(".smasher-not-win").style.display='none';
+            document.querySelector(".clicker-container").style.display='none';
+            document.querySelector("#result").style.display='block';
+
+            reset();
+        }, 3000);
+
 
     } else if(data.winner == false && data.smashCount < 1) {
         //PLAYER LOSES AND SMASHEE
         document.querySelector(".loseScreen").style.display='block';
         console.log("you lose");
-<<<<<<< HEAD
+
     } else if (data == 'draw') {
         alert("cancels everything - back to game, no damage");
+
+        document.querySelector(".clicker-container").style.display='none';
+        
+        reset();
     }
-
-=======
-
-    } else if (data == 'draw') {
-        alert("cancels everything - back to game, no damage");
-
-    } 
->>>>>>> 02f150059e5ce16bb0d26633474bf67a726ca9db
 });
 
 function showResult(result){
@@ -378,26 +409,34 @@ function showResult(result){
 
 
 if (result.p1Wins && result.p1Smash > 0){
-    document.querySelector(".clicker-container").style.display='block';
-    document.querySelector(".clicker-message-container").style.display='block';
-    document.querySelector(".clicker-message").style.display='block';
-    document.querySelector("#show-clicker").style.display='block';
-    document.querySelector(".clicker-results").style.display='none';
-    document.querySelector(".clicker-ticker h2").style.display='none';
 
-    document.querySelector(".clicker-message").innerHTML="The smash hit! Fight to win!";
+        document.querySelector("#result").style.display='none';
+
+            document.querySelector(".clicker-container").style.display='block';
+            document.querySelector(".clicker-message-container").style.display='block';
+            document.querySelector(".clicker-message").style.display='block';
+            document.querySelector("#show-clicker").style.display='block';
+            document.querySelector(".clicker-results").style.display='none';
+            document.querySelector(".clicker-ticker h2").style.display='none';
+
+            document.querySelector(".clicker-message").innerHTML="The smash hit! Tap to win!";
+
 
 }
 
 if (result.p2Wins && result.p2Smash > 0){
-    document.querySelector(".clicker-container").style.display='block';
-    document.querySelector(".clicker-message-container").style.display='block';
-    document.querySelector(".clicker-message").style.display='block';
-    document.querySelector("#show-clicker").style.display='block';
-    document.querySelector(".clicker-results").style.display='none';
-    document.querySelector(".clicker-ticker h2").style.display='none';
 
-    document.querySelector(".clicker-message").innerHTML="Their smash hit! Defend yourself!";
+        document.querySelector("#result").style.display='none';
+
+            document.querySelector(".clicker-container").style.display='block';
+            document.querySelector(".clicker-message-container").style.display='block';
+            document.querySelector(".clicker-message").style.display='block';
+            document.querySelector("#show-clicker").style.display='block';
+            document.querySelector(".clicker-results").style.display='none';
+            document.querySelector(".clicker-ticker h2").style.display='none';
+
+            document.querySelector(".clicker-message").innerHTML="Their smash hit! Tap to defend yourself!";
+
 }
 else {
 
@@ -447,9 +486,9 @@ function p1ClickTimer(){
         var iterator4 = function*(){ // Generator iterator
             yield "5";
             yield "4";
-            yield "3!";
-            yield "2!";
-            yield "1!";
+            yield "3";
+            yield "2";
+            yield "1";
             yield "TIME UP!";
         }();
 
@@ -482,8 +521,14 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 1
-    if(result.p1Wins > 80 && result.p1Energy >= 2){
-        document.querySelector(".your-smash").style.display='block'; 
+    if(result.p1Wins >= 0 && result.p1Energy >= 2){
+
+        setTimeout(function(){
+            document.querySelector(".your-smash").style.display='block'; 
+            smashSound.play();
+
+        }, 3000);
+
     }
     else{
         document.querySelector(".your-smash").style.display='none';         
@@ -491,7 +536,7 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
-    if(result.p2Wins > 80 && result.p2Energy >= 2){
+    if(result.p2Wins > 0 && result.p2Energy >= 2){
         document.querySelector("#opponents-smash").style.display='block';
     }
     else{
@@ -499,10 +544,10 @@ function p1ClickerResults(){
     }
 
 // WIN GAME IF % IS OVER CERTAIN AMOUNT
-    if(result.p1Wins > 20){
+    if(result.p1Wins > 170){
         document.querySelector(".winScreen").style.display='block';
     }
-    else if(result.p2Wins > 20){
+    else if(result.p2Wins > 170){
         document.querySelector(".loseScreen").style.display='block';
     } 
 
@@ -592,30 +637,36 @@ function p1ClickerResults(){
 
 
 if (result.p1Wins && result.p1Smash > 0){
-    document.querySelector(".clicker-container").style.display='block';
-    document.querySelector(".clicker-message-container").style.display='block';
-    document.querySelector(".clicker-message").style.display='block';
-    document.querySelector("#show-clicker").style.display='block';
-    document.querySelector(".clicker-results").style.display='none';
-    document.querySelector(".clicker-ticker h2").style.display='none';
 
+        document.querySelector("#result").style.display='none';
 
-    document.querySelector(".clicker-message").innerHTML="Their smash hit! Defend yourself!";
+            document.querySelector(".clicker-container").style.display='block';
+            document.querySelector(".clicker-message-container").style.display='block';
+            document.querySelector(".clicker-message").style.display='block';
+            document.querySelector("#show-clicker").style.display='block';
+            document.querySelector(".clicker-results").style.display='none';
+            document.querySelector(".clicker-ticker h2").style.display='none';
+
+            document.querySelector(".clicker-message").innerHTML="Their smash hit! Tap to defend yourself!";
+
 }
 else {
 
 }
 
 if (result.p2Wins && result.p2Smash > 0){
-    document.querySelector(".clicker-container").style.display='block';
-    document.querySelector(".clicker-message-container").style.display='block';
-    document.querySelector(".clicker-message").style.display='block';
-    document.querySelector("#show-clicker").style.display='block';
-    document.querySelector(".clicker-results").style.display='none';
-    document.querySelector(".clicker-ticker h2").style.display='none';
 
+        document.querySelector("#result").style.display='none';
 
-    document.querySelector(".clicker-message").innerHTML="Your smash hit! Fight to win!";
+            document.querySelector(".clicker-container").style.display='block';
+            document.querySelector(".clicker-message-container").style.display='block';
+            document.querySelector(".clicker-message").style.display='block';
+            document.querySelector("#show-clicker").style.display='block';
+            document.querySelector(".clicker-results").style.display='none';
+            document.querySelector(".clicker-ticker h2").style.display='none';
+
+            document.querySelector(".clicker-message").innerHTML="The smash hit! Tap to win!";
+
 }
 else {
 
@@ -675,9 +726,9 @@ function p2ClickTimer(){
         var iterator5 = function*(){ // Generator iterator
             yield "5";
             yield "4";
-            yield "3!";
-            yield "2!";
-            yield "1!";
+            yield "3";
+            yield "2";
+            yield "1";
             yield "TIME UP!";
         }();
 
@@ -705,8 +756,11 @@ function p2ClickerResults(){
 
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
-            if(result.p2Wins > 80 && result.p2Energy >=2){
-                document.querySelector(".your-smash").style.display='block';
+            if(result.p2Wins > 0 && result.p2Energy >=2){
+                setTimeout(function(){
+                    document.querySelector(".your-smash").style.display='block';
+                    smashSound.play();                  
+                }, 3000);
             }
             else{
                 document.querySelector(".your-smash").style.display='none';
@@ -714,18 +768,18 @@ function p2ClickerResults(){
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
 
-            if(result.p1Wins > 80 && result.p1Energy >=2){
-                document.querySelector("#opponents-smash").style.display='block'; 
+            if(result.p1Wins > 0 && result.p1Energy >=2){
+                document.querySelector("#opponents-smash").style.display='block';
             }
             else{
                 document.querySelector("#opponents-smash").style.display='none'; 
             }
 
         // WIN GAME IF % IS OVER CERTAIN AMOUNT
-            if(result.p2Wins > 20){
+            if(result.p2Wins > 170){
                 document.querySelector(".winScreen").style.display='block';
             }
-            else if(result.p1Wins > 20){
+            else if(result.p1Wins > 170){
                 document.querySelector(".loseScreen").style.display='block';
             } 
 

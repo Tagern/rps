@@ -53,13 +53,17 @@ footer {
   
 }
 
+.start_game_button{
+  padding-bottom:30px;
+}
+
 .menu-list {
   padding-top: 100px;
   display: block;
 }
 .menu-list, li {
   list-style: none;
-  line-height: 3.4em;
+  line-height: 2.3em;
 }
 
 .roundContainer {
@@ -70,14 +74,29 @@ footer {
   position: relative;
   width: 100%;
   height: 100vh;
+  z-index:100;
 }
 
+.homepage-background{
+  position:absolute;
+  z-index:0;
+  width:100%;
+  height:100vh;
+  top:0;
+}
+
+.game_title{
+  font-size:2.5em;
+  margin-bottom: -30px;
+}
 
 #front {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5em;
+  margin-top: 12em;
+  position:relative;
+  z-index:1000;
 }
 #front * {
   flex: auto;
@@ -89,6 +108,9 @@ footer {
 
 #wait {
   text-align: center;
+  position:relative;
+  z-index:1000;
+  margin-top:5em;
 }
 #wait h3 {
   font-size: 1.4em;
@@ -110,20 +132,34 @@ footer {
 }
 #game div h1 {
   font-size: 1.6rem;
+  margin-left: 25px;
+
 }
 
 
 
-
+#weaponYou{
+  margin-left:25px;
+}
 
 #weaponOpponent img {
   /*transform: scaleX(-1);*/
+  margin-right:25px;
 }
 #result {
   /*color: dimgrey;*/
   text-align: center;
   font-style: italic;
+  max-width:60%;
+  line-height:1.6em;
+  margin: 0 auto;
+  display:block;
 }
+
+#result_show{
+  display:block !important;
+}
+
 #messages {
   text-align: center;
   color: darkred;
@@ -133,8 +169,8 @@ footer {
   position: absolute;
   bottom: 0px;
   width: 100%;
-  height: 170px;
-  min-height: 170px;
+  height: 150px;
+  min-height: 150px;
   text-align: center;
   /*background-color: whitesmoke;*/
   padding: 10px 0 0 0;
@@ -163,6 +199,8 @@ footer {
   transform: translate(-50%, -50%);
   /*display: inline-block;*/
   z-index: 7000;
+    padding: 0;
+    text-align: left;
 }
 
 #weapon-selector ul {
@@ -240,6 +278,7 @@ progress {
   appearance: none;
  height: 20px;
  width: 250px;
+margin-left: 25px;
 }
 progress[value] {
    position: relative;
@@ -272,6 +311,7 @@ progress[value]::-webkit-progress-value {
 .your-score h1 {
   font-size: 2.6rem;
   float: left;
+  margin-left: 25px;
 }
 
 .opponents-score {
@@ -281,6 +321,7 @@ progress[value]::-webkit-progress-value {
 .opponents-score h1 {
   font-size: 2.6rem;
   float: right;
+  margin-right: 25px;
 }
 
 .name-div {
@@ -303,6 +344,7 @@ progress[value]::-webkit-progress-value {
    color: #FF3333; /*red*/
    font-size: 1.3rem;
    float: right;
+   margin-right: 25px;
 }
 
 .your-weapon {
@@ -334,16 +376,14 @@ progress[value]::-webkit-progress-value {
   /*float: left;*/
   position: absolute;
   left: 40px;
+  top:32px;
   z-index: 4001;
   padding: 0;
-
-
 }
 
-.your-smash p{
-
-  
+.your-smash p{ 
 }
+
 
 #opponents-smash {
 
@@ -467,6 +507,42 @@ progress[value]::-webkit-progress-value {
 }
 
 
+.fight_background{
+  position:absolute;
+  bottom:0;
+  width: 100%;
+  height:100vh;
+  z-index: -1;
+}
+
+.player1_character{
+  width:100px;
+  position:absolute;
+  left:180px;
+  bottom:180px !important;
+}
+
+.player1_character img{
+  position:absolute;
+  left:0;
+  right:0;
+  z-index:9999;
+}
+
+.player2_character{
+  width:100px;
+  position:absolute;
+  right:180px;
+  bottom:180px !important;
+
+}
+.player2_character img{
+  position:absolute;
+  right:0;
+  z-index:9999;
+}
+
+
 .opponents-final-score {
   width: 33%;
   float: left;
@@ -511,30 +587,50 @@ progress[value]::-webkit-progress-value {
 
 
 .clicker-container{
-  background-color:blue;
-  width:400px;
-  height:200px;
+  background-color: black;
+  width:500px;
+  height:250px;
   position:absolute;
   left:50%;
   right:50%;
   transform: translate(-50%, -50%);
   display:none;
+  border:5px solid white;
+  margin
+
 }
 
 .clicker-container button{
   display:block;
   margin:0 auto;
-  background-color:#eaeaea;
+  background-color:black;
+  border: 3px solid white;
+  width: 60%;
+  height: 80%;
+
 }
 
 .clicker-message-container{
-  background-color:pink;
+  background-color:transparent;
+  position:absolute;
+  bottom:23px;
+  height:40%;
+  width:100%;
+
 }
 
 .clicker-message{
-  background-color:green;
-  color:white;
+    background-color: transparent;
+    color: white;
+    position: absolute;
+    top: -90%;
+    text-align: center;
+    width: 100%;
+    font-size: .8em;
+    line-height: 2em;
 }
+
+.clicker
 
 .the-clicker{
   background-color:red;
@@ -544,23 +640,48 @@ progress[value]::-webkit-progress-value {
 }
 
 .the-clicker .player1-clicker{
-  background-color:yellow;
-  width:400px;
-  height:200px;
+  background-color:#ff3333;
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
   display:none;
+  z-index:-1;
 }
 
 .the-clicker .player2-clicker{
-  background-color:#eaeaea;
-  width:400px;
-  height:200px;
+  background-color:#ff3333;
+  position:absolute;
+  top:0;
+  width:100%;
+  height:100%;
   display:none;
+  z-index:-1;
+}
+
+.clicker-ticker{
+  text-align:center;
+  margin-top: 2em;
+}
+
+.clicker-results{
+    margin:0 auto !important;
+    text-align: center !important;
+    margin-top: 2em !important;
 }
 
 .player1-clicker{
 }
 
 .player2-clicker{
+}
+
+.smasher-not-win{
+  display:none;
+  text-align:center;
+  margin:0 auto;
+  line-height: 2em;
+  padding:0 10px 0 10px;
 }
 
 

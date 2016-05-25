@@ -6,6 +6,8 @@
     <title>8-bit BattleZone</title>
     <script src="https://featuretests.io/rs.js"></script> 
     <link rel='stylesheet' href="css/style.css" />
+    <link rel="stylesheet" href="css/animate.css">
+
 </head>
 <body>
 <script>
@@ -91,10 +93,13 @@
     <div class="container">
         
         <div id="frontView">
+        
+            <img class="homepage-background" src="images/background.gif"/>
+            <audio src="audio/8_bit_intro_voice.mp3" autoplay="autoplay"></audio>
             <div id="front">
-                <h1>8-bit Battle Zone</h1>
+                <h1 class="game_title">8-bit Battle Zone</h1>
                 <ul class="menu-list">
-                    <li><button id="start">start game</button></li>
+                    <li><button class="start_game_button animated infinite flash" id="start">start game</button></li>
                     <li><button onclick="window.location.href='how-to-play.html'" id="rules">How to play</button></li>
                 </ul>
                 <p id="messages"></p>
@@ -106,6 +111,8 @@
         </div>
         
         <div id="waitView" class="hide">
+            <img class="homepage-background" src="images/background.gif"/>
+
             <div id='wait'>
                 <h3>
                     Waiting for opponent...
@@ -164,7 +171,11 @@
                     <h1 id="scoreOpponent">0%</h1>
                 </div>
             </div>
-            
+
+            <img class="fight_background" src="images/fight_background.png"/>
+
+                <img class="player1_character animated infinite bounce" src="images/player1.svg"/>
+                <img class="player2_character animated infinite bounce" src="images/player2.svg"/>
             <div class="fight-zone">
                 <div class="your-weapon">
                     <p id="weaponYou"></p>
@@ -177,14 +188,18 @@
                         <div class="clicker-message">
                             <h2></h2>
                         </div>
-                        <button id="show-clicker">Show clicker</button>
+                        <button id="show-clicker">Ready!</button>
                     </div>
                     <div class="clicker-ticker">
                         <h2></h2>
                     </div>
+
                     <div class="the-clicker">
                         <button class="player1-clicker"></button>
                         <button class="player2-clicker"></button>
+                    </div>
+                    <div class="smasher-not-win">
+                        <h2></h2>
                     </div>
                     <div class="clicker-results">
                         <h2></h2>
@@ -201,7 +216,7 @@
                 <h1 id="waiting-for-opponent">Waiting for opponent</h1>
 
                 <div class="your-smash">
-                    <a id="your-smash" type="button" class="smash-icon"><img src='images/smash-icon.png'></a>
+                    <a id="your-smash" type="button" class="smash-icon animated flash"><img src='images/smash-icon.png'></a>
                     <p> SMASH </p>
                 </div>
                 
