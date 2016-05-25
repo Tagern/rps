@@ -299,7 +299,7 @@ socket.on('confirmation', function(data) {
         reset();
     }
 
-} 
+});
 
 
 function showResult(result){
