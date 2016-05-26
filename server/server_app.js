@@ -14,7 +14,7 @@ var debug = require('debug')('rps:server');
 app.use(express.static(__dirname + '/../browser/'));
 
 // Define a port we want to listen to
-const PORT = process.env.PORT || 8080; //changed from 8080
+const PORT = process.env.PORT || 8080; //change to 27836 when hosting
 
 // We need a function which handles requests and send response
 
@@ -31,7 +31,7 @@ app.get('/', function(req,res) {
  */
 server.listen(PORT, function(){
     //Callback triggered when server is successfully listening. Hurray!
-    console.log("Server listening on: http://localhost:%s", PORT);
+    console.log("Server listening on: PORT 27836", PORT);
 });
 server.on('error', onError);
 server.on('listening', onListening);

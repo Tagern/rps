@@ -36,6 +36,17 @@ var selectorHeader2 = document.querySelector('#waiting-for-opponent');
 var weaponChosenYou = document.querySelector('#weaponYou');
 var weaponChosenOpp = document.querySelector('#weaponOpponent');
 
+var yourClickScore = document.querySelector('.your-click-score');
+var opponentsClickScore = document.querySelector('.opponents-click-score');
+
+var yourFinalScore = document.querySelector('.your-final-score');
+var opponentsFinalScore = document.querySelector('.opponents-final-score');
+
+
+
+
+
+
 var btnStart = document.querySelector('#start');
 btnStart.addEventListener('click', createGame);
 
@@ -79,7 +90,7 @@ function on_Attack() {
     attackSound.play();
 }
 function on_Empty(){
-    alert("You need to focus!");
+    alert("You need more focus!");
 }
 function on_Shield() {
     socket.emit('choice', "shield");
@@ -250,6 +261,7 @@ socket.on('confirmation', function(data) {
     if(data.winner == true && data.smashCount > 0) {
         //PLAYER WINS AND WAS SMASHER
         document.querySelector(".winScreen").style.display='block';
+
         console.log("you win!");
     } else if (data.winner == true && data.smashCount < 1) {
         //PLAYER WINS AND WAS SMASHEE
@@ -300,6 +312,7 @@ socket.on('confirmation', function(data) {
     }
 
 });
+
 
 
 function showResult(result){
@@ -524,7 +537,7 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 1
-    if(result.p1Wins > 75 && result.p1Energy >= 2){
+    if(result.p1Wins > 5 && result.p1Energy >= 2){
 
         setTimeout(function(){
             document.querySelector(".your-smash").style.display='block'; 
@@ -539,7 +552,7 @@ function p1ClickerResults(){
 
 
 // SHOW SMASH ATTACK FOR PLAYER 2 (OPPONENT)
-    if(result.p2Wins > 75 && result.p2Energy >= 2){
+    if(result.p2Wins > 5 && result.p2Energy >= 2){
         document.querySelector("#opponents-smash").style.display='block';
     }
     else{
@@ -549,11 +562,29 @@ function p1ClickerResults(){
 // WIN GAME IF % IS OVER CERTAIN AMOUNT
     if(result.p1Wins > 170){
         document.querySelector(".winScreen").style.display='block';
+
+        document.querySelector(".your-click-score").innerHTML=p1count;
+
     }
     else if(result.p2Wins > 170){
         document.querySelector(".loseScreen").style.display='block';
+
+        document.querySelector(".opponents-click-score").innerHTML=p2count;
+
     } 
 
+//Display PLAYER 1s percentage
+        if(){
+
+        }
+        document.querySelector(".your-final-percentage").innerHTML=result.p2Wins+"%";
+        document.querySelector(".opponents-final-percentage").innerHTML=result.p1Wins+"%";
+
+//Display PLAYER 1s clicks 
+        document.querySelector(".your-click-score").innerHTML=p1count.value;
+        document.querySelector(".opponents-click-score").innerHTML=p2count.value;
+        console.log(p1count);
+        console.log(p2count);
 
 ///////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////
@@ -759,7 +790,7 @@ function p2ClickerResults(){
 
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 2 (YOU)
-            if(result.p2Wins > 75 && result.p2Energy >=2){
+            if(result.p2Wins > 5 && result.p2Energy >=2){
                 setTimeout(function(){
                     document.querySelector(".your-smash").style.display='block';
                     smashSound.play();                  
@@ -771,7 +802,7 @@ function p2ClickerResults(){
 
 // HIDE AND SHOW SMASH ATTACK FOR PLAYER 1(OPPONENT)
 
-            if(result.p1Wins > 75 && result.p1Energy >=2){
+            if(result.p1Wins > 5 && result.p1Energy >=2){
                 document.querySelector("#opponents-smash").style.display='block';
             }
             else{
@@ -779,12 +810,22 @@ function p2ClickerResults(){
             }
 
         // WIN GAME IF % IS OVER CERTAIN AMOUNT
-            if(result.p2Wins > 170){
+            if(result.p2Wins > 100){
                 document.querySelector(".winScreen").style.display='block';
             }
-            else if(result.p1Wins > 170){
+            else if(result.p1Wins > 100){
                 document.querySelector(".loseScreen").style.display='block';
             } 
+
+// Display PLAYER 2s percentage
+        document.querySelector(".lose-your-final-percentage").innerHTML=result.p1Wins+"%";
+        document.querySelector(".lose-opponents-final-percentage").innerHTML=result.p2Wins+"%";
+    
+    //Display PLAYER 2s clicks 
+        document.querySelector(".your-click-score").innerHTML=p2count;
+        document.querySelector(".opponents-click-score").innerHTML=p1count;
+        console.log(p1count);
+        console.log(p2count);
 
         document.querySelector('#weaponOpponent').innerHTML = getImage(result.p1Weapon);
     }
